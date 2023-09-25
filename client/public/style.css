@@ -1,0 +1,28 @@
+footer table p {
+    font-size: 8px;
+}
+
+footer table span {
+    font-size: 24px;
+}
+
+footer .text-logo{
+    font-size: 24px;
+}
+
+
+.details .text-dentail{
+    position: relative;
+}
+
+.card-body .text-bottom{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.sale-text{
+    font-size: 10px;
+}
+
+
