@@ -10,7 +10,7 @@
           <div class="app-brand demo">
             <a href="index.php" class="app-brand-link">
               <span class="app-brand-logo demo">
-                <img class="img" src="../assets/img/favicon/White & Black Minimalist Logo Distro Fashion.png" alt="logo" width="42px" height="42px">
+                <img class="img" src="../content/assets/img/favicon/White & Black Minimalist Logo Distro Fashion.png" alt="logo" width="42px" height="42px">
               </span>
               <span class="app-brand-text demo menu-text fw-bolder ms-2">BORCELLE</span>
               <span class="text-primary text-admin ps-1">Admin</span>
@@ -171,7 +171,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="../content/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -180,7 +180,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="../content/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -248,6 +248,13 @@
                 <div class="table-responsive text-nowrap">
                   <table class="table">
                     <thead>
+                    <?php 
+                        include "../backend/pdo.php";
+                        include "../act-admin/loaisp.php";
+                        $loaisp = new loaisp();
+                        $id_lsp = $_GET["id_lsp"];
+                        $rows = $loaisp->getById($id_lsp);
+                      ?>
                       <tr>
                         <th>Thông tin</th>
                         <th>Thông tin loại sản phẩm</th>
@@ -256,19 +263,19 @@
                     <tbody>
                       <tr>
                         <td>ID loại sản phẩm</td>
-                        <td>1</td>
+                        <td><?=$rows['id_lsp']?></td>
                       </tr>
                       <tr>
                         <td>Tên loại sản phẩm</td>
-                        <td>alec</td>
+                        <td><?=$rows['ten']?></td>
                       </tr>
                       <tr>
                         <td>Ngày tạo loại sản phẩm</td>
-                        <td>12/09/2023</td>
+                        <td>.....</td>
                       </tr>
                       <tr>
                         <td>Trạng thái</td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
+                        <td><span class="badge me-1 <?php if(trim($row['trangthai'])=='Ẩn') {echo 'bg-label-secondary';}else{echo'bg-label-success';}?> "><?=$rows['trangthai']?></span></td>
                       </tr>
 
                     </tbody>
@@ -322,7 +329,7 @@
                               <div class="card-body">
                                 <div class="mb-3 col-12 mb-0">
                                   <div class="alert alert-warning">
-                                    <h6 class="alert-heading fw-bold mb-1">Bạn chắc chăn muốn xóa loại sản phẩm?</h6>
+                                    <h6 class="alert-heading fw-bold mb-1">Bạn chắc chắn muốn xóa loại sản phẩm?</h6>
                                     <p class="mb-0">Sau khi xóa không thể đặt username đã tồn tại trong csdl</p>
                                   </div>
                                 </div>
@@ -352,18 +359,18 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../content/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../content/assets/vendor/libs/popper/popper.js"></script>
+    <script src="../content/assets/vendor/js/bootstrap.js"></script>
+    <script src="../content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="../content/assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
 
     <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
+    <script src="../content/assets/js/main.js"></script>
 
     <!-- Page JS -->
 

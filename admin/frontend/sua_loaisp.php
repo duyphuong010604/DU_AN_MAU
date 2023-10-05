@@ -10,7 +10,7 @@
           <div class="app-brand demo">
             <a href="index.php" class="app-brand-link">
               <span class="app-brand-logo demo">
-                <img class="img" src="../assets/img/favicon/White & Black Minimalist Logo Distro Fashion.png" alt="logo" width="42px" height="42px">
+                <img class="img" src="../content/assets/img/favicon/White & Black Minimalist Logo Distro Fashion.png" alt="logo" width="42px" height="42px">
               </span>
               <span class="app-brand-text demo menu-text fw-bolder ms-2">BORCELLE</span>
               <span class="text-primary text-admin ps-1">Admin</span>
@@ -171,7 +171,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="../content/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -180,7 +180,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="../content/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -249,9 +249,34 @@
                       <small class="text-muted float-end">Nhập vào ô bên dưới</small>
                     </div>
                     <div class="card-body">
-                    <form>
+                    <form action="../backend/loaisp-sua.php" method="post">
+                      <?php 
+                        include "../backend/pdo.php";
+                        include "../act-admin/loaisp.php";
+                        $loaisp = new loaisp();
+                        $id_lsp = $_GET["id_lsp"];
+                        $rows = $loaisp->getById($id_lsp);
+                        
+                      ?>
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="loaisp">Tên loại sản phẩm</label>
+                          <label class="col-sm-2 col-form-label">ID loại sản phẩm</label>
+                          <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                              <span id="loaisp" class="input-group-text"
+                                ><i class='bx bx-id-card'></i></span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="id_lsp"
+                                required readonly
+                                name="id_lsp"
+                                value="<?=$rows['id_lsp']?>"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="ten">Tên loại sản phẩm</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
                               <span id="loaisp" class="input-group-text"
@@ -259,11 +284,9 @@
                               <input
                                 type="text"
                                 class="form-control"
-                                id="loasp"
-                                placeholder="Loại sản phẩm"
-                                aria-label="Loại sản phẩm"
-                                aria-describedby="loaisp"
-                                name="loaisp"
+                                id="ten"
+                                value="<?=$rows['ten']?>"
+                                name="ten"
                               />
                             </div>
                           </div>
@@ -271,25 +294,27 @@
                         
 
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="trangthai_loaisp">Trạng thái</label>
+                          <label class="col-sm-2 col-form-label" for="trangthai">Trạng thái</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                              <span id="trangthai_loaisp" class="input-group-text"
+                              <span id="trangthai" class="input-group-text"
                                 ><i class='bx bx-list-ul'></i></span>
-                              <select name="trangthai_loaisp" id="trangthai_loaisp" class="form-control form-select">
+                              <select name="trangthai" id="trangthai" class="form-control form-select " >
                                   <option selected >Chọn</option>
-                                  <option class="form-control" value="1">Hiển thị</option>
-                                  <option class="form-control" value="0">Ẩn</option>
+                                  <option class="form-control" value="Hiển thị" <?php if ($rows["trangthai"] == "Hiển thị") echo "selected"; ?>>Hiển thị</option>
+                                  <option class="form-control" value="Ẩn" <?php if ($rows['trangthai'] == "Ẩn") echo "selected"; ?>>Ẩn</option>
                               </select>
                             </div>
                           </div>
                         </div>
+                        
                        
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Thêm mới</button>
+                            <button type="submit" class="btn btn-primary" name="luu">Thêm mới</button>
                           </div>
                         </div>
+                        
                       </form>
                     </div>
                   </div>
@@ -316,18 +341,18 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../content/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../content/assets/vendor/libs/popper/popper.js"></script>
+    <script src="../content/assets/vendor/js/bootstrap.js"></script>
+    <script src="../content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="../content/assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
 
     <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
+    <script src="../content/assets/js/main.js"></script>
 
     <!-- Page JS -->
 

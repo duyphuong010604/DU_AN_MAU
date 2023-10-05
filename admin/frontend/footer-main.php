@@ -2,7 +2,7 @@
               <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                 <div class="mb-2 mb-md-0 col-4">
                     <div class="top-logo d-flex justify-content-start align-items-center">
-                    <img src="../assets/img/favicon/White & Black Minimalist Logo Distro Fashion.png" alt="logo" class="me-1" width="42px" height="42px">
+                    <img src="../content/assets/img/favicon/White & Black Minimalist Logo Distro Fashion.png" alt="logo" class="me-1" width="42px" height="42px">
                     <a href="#" class=" text-logo footer-link fw-bolder">BORCELLE STORE</a>
                     </div>
                     <h4 class="mt-5 mb-5">Trang mua sắm thời trang hàng đầu VIỆT NAM</h4>
