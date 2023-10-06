@@ -285,7 +285,7 @@
                        
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Thêm mới</button>
+                            <button type="submit" class="btn btn-primary" name='them'>Thêm mới</button>
                           </div>
                         </div>
                       </form>

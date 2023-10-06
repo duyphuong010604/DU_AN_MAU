@@ -352,9 +352,9 @@
                           <div class="input-group input-group-merge">
                             <span id="trangthai" class="input-group-text"><i class='bx bx-list-ul'></i></span>
                             <select name="trangthai" id="trangthai" class="form-control form-select">
-                              <option selected>Chọn</option>
-                              <option class="form-control" value="Hiển thị">Hiển thị</option>
-                              <option class="form-control" value="Ẩn">Ẩn</option>
+                              <option disabled>Chọn</option>
+                              <option class="form-control" value="Hiển thị" <?php if ($rows['trangthai'] === "Hiển thị") echo "selected"; ?>>Hiển thị</option>
+                              <option class="form-control" value="Ẩn" <?php if ($rows['trangthai'] === "Ẩn") echo "selected"; ?>>Ẩn</option>
                             </select>
                           </div>
                         </div>

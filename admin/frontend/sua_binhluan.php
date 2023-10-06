@@ -249,127 +249,75 @@
                       <small class="text-muted float-end">Nhập vào ô bên dưới</small>
                     </div>
                     <div class="card-body">
-                      <form>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="username_spbl">Tên sản phẩm</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="username_sp" class="input-group-text"
-                                ><i class='bx bxl-product-hunt' ></i></span>
-                              <input
-                                type="text"
-                                class="form-control"
-                                id="username_sp"
-                                placeholder="John Doe"
-                                aria-label="John Doe"
-                                aria-describedby="username_sp"
-                                required readonly
-                                name="username_spbl"
-                              />
-                            </div>
+                    <form action="../backend/binhluan-sua.php" method='post'>
+                    <?php
+                    include "../backend/pdo.php";
+                    include "../act-admin/binhluan.php";
+                    $binhluan = new binhluan();
+                    $id_bl = $_GET["id_bl"];
+                    $rows = $binhluan->getById($id_bl);
+                    
+                    ?>
+                    
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="id_bl">ID bình luận</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="username_bl" class="input-group-text"><i class='bx bxl-product-hunt'></i></span>
+                            <input type="text" class="form-control" id="id_bl" placeholder="ID bình luận"  name="id_bl" required readonly value="<?=$rows['id_sp']?>"/>
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="hinhanh_spbl">Hình ảnh</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-password" class="input-group-text"
-                                ><i class='bx bx-image-alt' ></i></span>
-                              <input
-                                type="file"
-                                class="form-control"
-                                id=""
-                                placeholder=""
-                                aria-label=""
-                                aria-describedby="basic-icon-default-"
-                                autocomplete="off"
-                                name="hinhanh_spbl"
-                                required readonly
-                              />
-                              
-                              
-               
-                            </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="id_sp">ID sản phẩm</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="username_sp" class="input-group-text"><i class='bx bxl-product-hunt'></i></span>
+                            <input type="text" class="form-control" id="id_sp" placeholder="ID sản phẩm"  name="id_sp" required readonly value="<?=$rows['id_sp']?>"/>
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="username_tkbl">Tên tài khoản bình luận</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="username_tkbl" class="input-group-text"
-                                ><i class='bx bxs-user'></i></span>
-                              <input
-                                type="text"
-                                class="form-control"
-                                id="username_tkbl"
-                                placeholder="John Doe"
-                                aria-label="John Doe"
-                                aria-describedby="username_sp"
-                                required readonly
-                                name="username_tkbl"
-                              />
-                            </div>
+                      </div>
+                      <!-- <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="id_kh">ID tài khoản bình luận</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="id_kh" class="input-group-text"><i class='bx bxs-user'></i></span>
+                            <input type="text" class="form-control" id="id_kh" placeholder="ID tài khoản bình luận" aria-label="John Doe" aria-describedby="id_kh" name="id_kh" required readonly value="<?=$rows['id_kh']?>"/>
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="noidung_bl">Nội dung bình luận</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="noidung_bl" class="input-group-text"
-                                ><i class='bx bx-text' ></i></span>
-                              <input
-                                type="text"
-                                class="form-control"
-                                id="noidung_bl"
-                                placeholder="John Doe"
-                                aria-label="John Doe"
-                                aria-describedby="noidung_bl"
-                                name="noidung_bl"
-                              />
-                            </div>
+                      </div> -->
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="noidung_bl">Nội dung bình luận</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="noidung_bl" class="input-group-text"><i class='bx bx-text'></i></span>
+                            <input type="text" class="form-control" id="noidung_bl" placeholder="Nhập nội dung"  name="noidung_bl" value="<?=$rows['noidung_bl']?>" />
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="traloi_bl">Trả lời của Admin</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="traloi_bl" class="input-group-text"
-                                ><i class='bx bx-text' ></i></span>
-                              <input
-                                type="text"
-                                id="traloi_bl"
-                                class="form-control"
-                                placeholder="ACME Inc."
-                                aria-label="ACME Inc."
-                                aria-describedby="traloi_bl"
-                                name="traloi_bl"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        
+                      </div>
+                      
 
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="trangthai_bl">Trạng thái</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="trangthai_bl" class="input-group-text"
-                                ><i class='bx bx-list-ul'></i></span>
-                              <select name="trangthai_bl" id="trangthai_bl" class="form-control form-select">
-                                  <option selected >Chọn</option>
-                                  <option class="form-control" value="1">Hiển thị</option>
-                                  <option class="form-control" value="0">Ẩn</option>
-                              </select>
-                            </div>
+
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="trangthai_bl">Trạng thái</label>
+                        <div class="col-sm-10">
+                          <div class="input-group input-group-merge">
+                            <span id="trangthai_bl" class="input-group-text"><i class='bx bx-list-ul'></i></span>
+                            <select name="trangthai_bl" id="trangthai_bl" class="form-control form-select">
+                              <option selected disabled>Chọn</option>
+                              <option class="form-control" value="Hiển thị" value="Hiển thị" <?php if ($rows["trangthai_bl"] == "Hiển thị") echo "selected"; ?>>Hiển thị</option>
+                              <option class="form-control" value="Ẩn" value="Ẩn" <?php if ($rows['trangthai_bl'] == "Ẩn") echo "selected"; ?>>Ẩn</option>
+                            </select>
                           </div>
                         </div>
-                       
-                        <div class="row justify-content-end">
-                          <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Lưu</button>
-                          </div>
+                      </div>
+
+                      <div class="row justify-content-end">
+                        <div class="col-sm-10">
+                          <button type="submit" class="btn btn-primary" name='luu'>Lưu</button>
                         </div>
-                      </form>
+                      </div>
+                    </form>
                     </div>
                   </div>
                 </div>

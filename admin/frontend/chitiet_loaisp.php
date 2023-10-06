@@ -254,6 +254,7 @@
                         $loaisp = new loaisp();
                         $id_lsp = $_GET["id_lsp"];
                         $rows = $loaisp->getById($id_lsp);
+                        var_dump($rows);
                       ?>
                       <tr>
                         <th>Thông tin</th>

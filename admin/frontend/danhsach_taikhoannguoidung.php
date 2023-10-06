@@ -250,35 +250,43 @@
                       <tr>
                         <th>ID tài khoản</th>
                         <th>User name</th>
-                        <th>Password</th>
+                        <th>Họ và tên</th>
                         <th>Số điện thoại</th>
                         <th>Trạng thái</th>
                         <th>Thêm</th>
                       </tr>
                     </thead>
                     <tbody>
+                      <?php
+                      include "../backend/pdo.php";
+                      include "../act-admin/khachhang.php";
+                      $khachhang = new khachhang();
+                      $rows = $khachhang->get_list();
+                      foreach($rows as $row):
+                      ?>
                       <tr>
-                        <td>1</td>
-                        <td>Albert Cook</td>
+                        <td><?=$row['id_kh']?></td>
+                        <td><?=$row['username']?></td>
+                        <td><?=$row['ho']?> <?=$row['ten']?></td>
                         <td>
-                          012345
+                        <?=$row['sdt']?>
                         </td>
-                        <td>0388925209</td>
                         
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
+                        
+                        <td><span class="badge <?php if(trim($row['trangthai'])=='Chặn') {echo 'bg-label-secondary';}else{echo'bg-label-success';}?> me-1"><?=$row['trangthai']?></span></td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                            <a class="dropdown-item" href="chitiet_tk.php"
+                            <a class="dropdown-item" href="chitiet_tk.php?id_kh=<?=$row['id_kh']?>"
                                 ><i class='bx bx-detail me-1'></i>Chi tiết</a
                               >
-                              <a class="dropdown-item" href="sua_tk.php"
+                              <a class="dropdown-item" href="sua_tk.php?id_kh=<?=$row['id_kh']?>"
                                 ><i class="bx bx-edit-alt me-1"></i>Chỉnh sửa</a
                               >
-                              <a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#exampleModal-xoatk"
+                              <a class="dropdown-item" href="../backend/khachhang-xoa.php?id_kh=<?=$row['id_kh']?>" 
                                 ><i class="bx bx-trash me-1"></i>Xóa</a
                               >
                             </div>
@@ -286,7 +294,7 @@
                         </td>
                       </tr>
                       <!-- Modal -->
-                      <div class="modal fade" id="exampleModal-xoatk" tabindex="-1" aria-labelledby="exampleModalLabel-xoatk" aria-hidden="true">
+                      <!-- <div class="modal fade" id="exampleModal-xoatk" tabindex="-1" aria-labelledby="exampleModalLabel-xoatk" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -322,7 +330,8 @@
                           </div>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
+                      <?php endforeach; ?>
                     </tbody>
                     <tfoot class="table-border-bottom-0">
                       <tr>

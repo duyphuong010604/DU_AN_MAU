@@ -311,7 +311,7 @@
                        
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary" name="luu">Thêm mới</button>
+                            <button type="submit" class="btn btn-primary" name="luu">Lưu</button>
                           </div>
                         </div>
                         
