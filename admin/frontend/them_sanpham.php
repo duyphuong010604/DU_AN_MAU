@@ -249,27 +249,47 @@
                       <small class="text-muted float-end">Nhập vào ô bên dưới</small>
                     </div>
                     <div class="card-body">
-                    <form>
+                    <form action="../backend/sanpham-them.php" method="post" enctype="multipart/form-data">
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Tên sản phẩm</label>
+                          <label class="col-sm-2 col-form-label" for="ten">Tên sản phẩm</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-fullname2" class="input-group-text"
+                              <span id="ten" class="input-group-text"
                                 ><i class='bx bxl-product-hunt' ></i></span>
                               <input
                                 type="text"
                                 class="form-control"
-                                id="basic-icon-default-fullname"
-                                placeholder="John Doe"
-                                aria-label="John Doe"
-                                aria-describedby="basic-icon-default-fullname2"
-                                required readonly
+                                id="ten"
+                                placeholder="Tên sản phẩm"
+                                aria-label="Tên sản phẩm"
+                                aria-describedby="ten"
+                                name="ten"
+                                
                               />
                             </div>
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Hình ảnh</label>
+                          <label class="col-sm-2 col-form-label" for="id_lsp">ID loại sản ph</label>
+                          <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                              <span id="id_lsp" class="input-group-text"
+                                ><i class='bx bx-sidebar' ></i></span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="id_lsp"
+                                placeholder="ID loại sản phẩm"
+                                aria-label="ID loại sản phẩm"
+                                aria-describedby="id_lsp"
+                                name="id_lsp"
+                                
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="hinhanh">Hình ảnh</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
                               <span id="basic-icon-default-password" class="input-group-text"
@@ -277,94 +297,108 @@
                               <input
                                 type="file"
                                 class="form-control"
-                                id=""
-                                placeholder=""
-                                aria-label=""
-                                aria-describedby="basic-icon-default-"
-                                autocomplete="off"
-                              />
-                              
-                              
-               
+                                id="hinhanh"
+                                name="hinhanh"
+                              />         
                             </div>
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Giá</label>
+                          <label class="col-sm-2 col-form-label" for="gia">Giá</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-fullname2" class="input-group-text"
+                              <span id="gia" class="input-group-text"
                                 ><i class='bx bx-dollar-circle' ></i></span>
                               <input
                                 type="text"
                                 class="form-control"
-                                id="basic-icon-default-fullname"
-                                placeholder="John Doe"
-                                aria-label="John Doe"
-                                aria-describedby="basic-icon-default-fullname2"
+                                id="gia"
+                                placeholder="Giá sản phẩm"
+                                aria-label="Giá sản phẩm"
+                                aria-describedby="gia"
+                                name="gia"
                               />
                             </div>
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Kích thước</label>
+                          <label class="col-sm-2 col-form-label" for="mausac">Màu sắc</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-company2" class="input-group-text"
+                              <span id="mausac" class="input-group-text"
+                                ><i class='bx bxs-palette' ></i></span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="mausac"
+                                placeholder="Màu sắc sản phẩm"
+                                aria-label="Màu sắc sản phẩm"
+                                aria-describedby="mausac"
+                                name="mausac"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="size">Kích thước</label>
+                          <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                              <span id="size" class="input-group-text"
                                 ><i class='bx bx-closet' ></i></span>
                               <input
                                 type="text"
-                                id="basic-icon-default-company"
+                                id="size"
                                 class="form-control"
-                                placeholder="ACME Inc."
-                                aria-label="ACME Inc."
-                                aria-describedby="basic-icon-default-company2"
+                                placeholder="S, M, L, XL"
+                                name="size"
                               />
                             </div>
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-email">Số lượng</label>
+                        <!-- <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="soluong">Số lượng</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
                               <span class="input-group-text"><i class='bx bx-list-plus' ></i></span>
                               <input
                                 type="text"
-                                id="basic-icon-default-email"
+                                id="soluong"
                                 class="form-control"
-                                placeholder="john.doe"
-                                aria-label="john.doe"
-                                aria-describedby="basic-icon-default-email2"
+                                placeholder="Số lượng sản phẩm"
+                                aria-label="Số lượng sản phẩm"
+                                aria-describedby="soluong"
+                                name="soluong"
                               />
-                              <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
+                             
                             </div>
                             
                           </div>
-                        </div>
+                        </div> -->
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-phone">Mô tả</label>
+                          <label class="col-sm-2 col-form-label" for="mota">Mô tả</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-phone2" class="input-group-text"
+                              <span id="mota" class="input-group-text"
                                 ><i class='bx bx-text' ></i></span>
                               <input
                                 type="text"
-                                id="basic-icon-default-phone"
+                                id="Mô tả"
                                 class="form-control phone-mask"
-                                placeholder="658 799 8941"
-                                aria-label="658 799 8941"
-                                aria-describedby="basic-icon-default-phone2"
+                                placeholder="Mô tả"
+                                aria-label="Mô tả"
+                                aria-describedby="mota"
+                                name ="mota"
                               />
                             </div>
                           </div>
                         </div>
                         
 
-                        <div class="row mb-3">
+                        <!-- <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-icon-default-phone">Ngày nhập</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-phone2" class="input-group-text"
+                              <span id="mota" class="input-group-text"
                                 ><i class='bx bxs-calendar-event'></i></span>
                               <input
                                 type="date"
@@ -376,18 +410,18 @@
                               />
                             </div>
                           </div>
-                        </div>
+                        </div> -->
 
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-phone">Trạng thái</label>
+                          <label class="col-sm-2 col-form-label" for="trangthai">Trạng thái</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-phone2" class="input-group-text"
+                              <span id="trangthai" class="input-group-text"
                                 ><i class='bx bx-list-ul'></i></span>
-                              <select name="" id="" class="form-control form-select">
+                              <select name="trangthai" id="" class="form-control form-select">
                                   <option selected >Chọn</option>
-                                  <option class="form-control" value="1">Hiển thị</option>
-                                  <option class="form-control" value="0">Ẩn</option>
+                                  <option class="form-control" value="Hiển thị">Hiển thị</option>
+                                  <option class="form-control" value="Ẩn">Ẩn</option>
                               </select>
                             </div>
                           </div>
@@ -395,7 +429,7 @@
                        
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Thêm mới sản phẩm</button>
+                            <button type="submit" class="btn btn-primary" name="them">Thêm mới sản phẩm</button>
                           </div>
                         </div>
                       </form>

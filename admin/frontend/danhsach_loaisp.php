@@ -260,44 +260,13 @@
                             <div class="dropdown-menu">
                               <a class="dropdown-item" href="chitiet_loaisp.php?id_lsp=<?= $row['id_lsp']?>"><i class='bx bx-detail me-1'></i>Chi tiết</a>
                               <a class="dropdown-item" href="sua_loaisp.php?id_lsp=<?=$row['id_lsp']?>"><i class="bx bx-edit-alt me-1"></i>Sửa</a>
-                              <a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#exampleModal-xoalsp"><i class="bx bx-trash me-1"></i> Xóa</a>
+                              <a class="dropdown-item" href="../backend/loaisp-xoa.php?id_lsp=<?=$row['id_lsp']?>"><i class="bx bx-trash me-1"></i> Xóa</a>
                             </div>
                           </div>
                         </td>
                       </tr>
                     
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal-xoalsp" tabindex="-1" aria-labelledby="exampleModalLabel-xoalsp" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Xóa loại sản phẩm</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <div class="card">
-                              <div class="card-body">
-                                <div class="mb-3 col-12 mb-0">
-                                  <div class="alert alert-warning">
-                                    <h6 class="alert-heading fw-bold mb-1">Bạn chắc chăn muốn xóa loại sản phẩm?</h6>
-                                    <p class="mb-0">Sau khi xóa không thể đặt username đã tồn tại trong csdl.</p>
-                                  </div>
-                                </div>
-                                <form id="formAccountDeactivation">
-                                  <div class="mb-3">
-                                    <input class="input" type="checkbox"  />
-                                    <label class="label" >Tôi đồng ý xóa loại sản phẩm!</label>
-                                  </div>
-                                  
-                                  <button type="submit" class="btn btn-danger"><a href="../backend/loaisp-xoa.php?id_lsp=<?=$row['id_lsp']?>">Xóa loại sản phẩm</a></button>
-                                  
-                                </form>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  
                     <?php endforeach; ?>
                   </tbody>
                   <tfoot class="table-border-bottom-0">

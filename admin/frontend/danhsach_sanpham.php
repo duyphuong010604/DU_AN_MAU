@@ -256,71 +256,42 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    include "../backend/pdo.php";
+                    include "../act-admin/sanpham.php";
+                    $sanpham = new sanpham();
+                    $rows=$sanpham->get_list();
+                    foreach ($rows as $row):
+                    ?>
                       <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?=$row['id_sp']?></strong></td>
                         <td>
-                            <img src="../content/assets/img/backgrounds/18.jpg" alt="Ảnh sản phẩm" width="60px" height="60px">
+                            <img src="../uploads/<?=$row["hinhanh"]?>" alt="Ảnh sản phẩm" width="60px" height="60px">
                         </td>
-                        <td>Albert Cook</td>
-                        <th>1000VND</th>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
+                        <td><?=$row["ten"]?></td>
+                        <th><?=number_format($row["gia"])?>VND</th>
+                        <td><span class="badge <?php if(trim($row['trangthai'])=='Ẩn') {echo 'bg-label-secondary';}else{echo'bg-label-success';}?> me-1"><?=$row["trangthai"]?></span></td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="chitiet_sanpham.php"
+                              <a class="dropdown-item" href="chitiet_sanpham.php?id_sp=<?=$row['id_sp']?>"
                                 ><i class='bx bx-detail me-1'></i>Chi tiết</a
                               >
-                              <a class="dropdown-item" href="sua_sanpham.php"
+                              <a class="dropdown-item" href="sua_sanpham.php?id_sp=<?=$row['id_sp']?>"
                                 ><i class="bx bx-edit-alt me-1"></i> Chỉnh sửa</a
                               >
-                              <a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#exampleModal-xoasp"
+                              <a class="dropdown-item" href="../backend/sanpham-xoa.php?id_sp=<?=$row['id_sp']?>"
                                 ><i class="bx bx-trash me-1"></i> Xóa</a
                               >
                             </div>
                           </div>
                         </td>
                       </tr>
-                      <!-- Modal -->
-                      <div class="modal fade" id="exampleModal-xoasp" tabindex="-1" aria-labelledby="exampleModalLabel-xoasp" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Xóa sản phẩm</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                            <div class="card">
-                              
-                              <div class="card-body">
-                                <div class="mb-3 col-12 mb-0">
-                                  <div class="alert alert-warning">
-                                    <h6 class="alert-heading fw-bold mb-1">Bạn chắc chăn muốn xóa sản phẩm?</h6>
-                                    <p class="mb-0">Sau khi xóa không thể đặt username đã tồn tại trong csdl.</p>
-                                  </div>
-                                </div>
-                                  <form id="formAccountDeactivation" >
-                                    <div class="form-check mb-3">
-                                      <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        name="accountActivation"
-                                        id="accountActivation"
-                                      />
-                                      <label class="form-check-label" for="accountActivation"
-                                        >Tôi đồng ý xóa sản phẩm!</label
-                                      >
-                                    </div>
-                                    <button type="submit" class="btn btn-danger deactivate-account">Xóa sản phẩm</button>
-                                  </form>
-                            </div>
-                            </div>
-                          </div>
-                          </div>
-                        </div>
-                      </div>
+                      
+                      <?endforeach; ?>
                     </tbody>
                     <tfoot class="table-border-bottom-0">
                       <tr>

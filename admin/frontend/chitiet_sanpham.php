@@ -247,6 +247,13 @@
                 <h5 class="card-header">Thông tin chi tiết sản phẩm </h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table">
+                    <?php
+                    include "../backend/pdo.php";
+                    include "../act-admin/sanpham.php";
+                    $sanpham = new sanpham();
+                    $id_sp = $_GET["id_sp"];
+                    $rows = $sanpham->getById($id_sp);
+                    ?>
                     <thead>
                       <tr>
                         <th>Thông tin</th>
@@ -256,33 +263,33 @@
                     <tbody>
                       <tr>
                         <td>ID  sản phẩm</td>
-                        <td>1</td>
+                        <td><?=$rows['id_sp']?></td>
                       </tr>
                       <tr>
                         <td>Tên sản phẩm</td>
-                        <td>alec</td>
+                        <td><?=$rows['ten']?></td>
                       </tr>
                       <tr>
                         <td>Hình ảnh</td>
                         <td>
-                            <img src="../content/assets/img/backgrounds/18.jpg" alt="Ảnh sản phẩm" width="60px" height="60px">
+                            <img src="../uploads/<?=$rows['hinhanh']?>" alt="Ảnh sản phẩm" width="60px" height="60px">
                         </td>
                       </tr>
                       <tr>
                         <td>Giá</td>
-                        <td>1000000 VNĐ</td>
+                        <td><?=number_format($rows['gia']) ?>VND</td>
                       </tr>
                       <tr>
                         <td>Kích thước</td>
-                        <td>ML</td>
+                        <td><?=strtoupper($rows['size'])?></td>
                       </tr>
-                      <tr>
+                      <!-- <tr>
                         <td>Số lượng</td>
-                        <td>1000</td>
-                      </tr>
+                        <td></td>
+                      </tr> -->
                       <tr>
                         <td>Mô tả</td>
-                        <td>.......</td>
+                        <td><?=$rows['mota']?></td>
                       </tr>
                       <tr>
                         <td>Ngày tạo  sản phẩm</td>
@@ -290,7 +297,7 @@
                       </tr>
                       <tr>
                         <td>Trạng thái</td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
+                        <td><span class="badge bg-label-primary me-1"><?=$rows['trangthai']?></span></td>
                       </tr>
 
                       
