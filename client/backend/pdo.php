@@ -4,7 +4,7 @@ class connect
 
     function pdo_get_connection()
     {
-        $dburl = 'mysql:host=localhost;dbname=camerashop.sql';
+        $dburl = 'mysql:host=localhost;dbname=asm_store_borcelle';
         $username = 'root';
         $password = 'mysql';
 

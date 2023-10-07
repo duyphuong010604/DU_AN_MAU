@@ -51,48 +51,56 @@
                     </div>
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100">
-                                <div class="card card-span h-100 text-white"><img class="img-fluid h-100" src="assets/img/gallery/flat-hill.png" alt="..." />
-                                    
-                                    <div class="card-body ps-0 bg-200">
-                                        <h5 class="fw-bold text-1000 text-truncate">Flat Hill Slingback</h5>
-                                        <div class="fw-bold"><span class="text-600 me-2 text-decoration-line-through">$200</span><span class="text-primary">$175</span></div>
-                                        <div class="d-flex lh-1 flex-row mb-5">
+                            <?php
+                            include "../backend/pdo.php";
+                            include "../atc-user/sanpham.php";
+                            
+                            $sanpham = new Sanpham();
+                            $rows = $sanpham->get_list();
+                            foreach ($rows as $row) :
+                            ?>
+                                <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100">
+                                    <div class="card card-span h-100 text-white"><img class="img-fluid h-100" src="<?=$row['hinhanh']?>" alt="..." />
+
+                                        <div class="card-body ps-0 bg-200">
+                                            <h5 class="fw-bold text-1000 text-truncate"><?=$row['ten']?></h5>
+                                            <div class="fw-bold"><span class="text-primary"><?=number_format($row['gia'])?>VND</span></div>
+                                            <div class="d-flex lh-1 flex-row mb-5">
                                                 <a href="#"><button class="btn btn-success badge me-2 " type="submit" style="font-size: 14px;" name="xem">See details</button></a>
                                                 <form action="#" method="post">
                                                     <input type="hidden" name="id_sp" id="" value="">
                                                     <button class="btn btn-danger badge " style="font-size: 14px;" type="submit" name="them">Add to cart</button>
                                                 </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                    
-                                    
-                                </div>
-                            </div>
 
-                            
-                    </div>
-                    <div class="col-12">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+
+                                    </div>
+                                </div>
+
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="col-12">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
-            </div>
 
         </section>
         <?php include "footer-main.php" ?>

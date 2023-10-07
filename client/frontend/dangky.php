@@ -67,25 +67,22 @@
 								</div>
 
 							</div>
-							<form action="#" class="signin-form ">
-								<div class="form-group mb-3">
-									<label class="label" for="fullname">Họ và tên</label>
-									<input type="text" class="form-control" placeholder="Nhập đầy đủ họ tên" required>
-								</div>
+							<form action="../backend/dangky.php" method="post" class="signin-form ">
+						
                                 <div class="form-group mb-3">
 									<label class="label" for="name">Tên đăng nhập</label>
-									<input type="text" class="form-control" placeholder="Tên đăng nhập" required>
+									<input type="text" class="form-control" placeholder="Tên đăng nhập" name="username" required>
 								</div>
                                 <div class="form-group mb-3">
 									<label class="label" for="sdt">Số điện thoại</label>
-									<input type="text" class="form-control" placeholder="+84:" required>
+									<input type="text" class="form-control" placeholder="+84:"name="sdt" required>
 								</div>
 								<div class="form-group mb-3">
 									<label class="label" for="password">Mật khẩu</label>
-									<input type="password" class="form-control" placeholder="Mật khẩu" required>
+									<input type="password" class="form-control" placeholder="Mật khẩu" name='password' required>
 								</div>
 								<div class="form-group">
-									<button type="submit" class="form-control btn btn-primary submit px-3">Sign
+									<button type="submit" class="form-control btn btn-primary submit px-3" name='dangky'>Sign
 										In</button>
 								</div>
 								<div class="form-group d-md-flex">
