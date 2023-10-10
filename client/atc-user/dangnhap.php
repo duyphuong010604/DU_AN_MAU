@@ -22,5 +22,7 @@ class user {
         $result = $db->pdo_query_one($select);
         return $result;
     }
+
+    
     
 }

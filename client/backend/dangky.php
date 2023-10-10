@@ -14,8 +14,10 @@ if(isset($_POST['dangky'])){
         $_SESSION['message'] = 'Bạn cần điền đầy đủ thông tin';
     }else{
         $result = $user_dk->add($username,$password,null,null,null,$sdt,$trangthai,null);
+        $list = $user_dk->userid($username,$password);
         if($result){
             $_SESSION['user'] = $username;
+            $_SESSION['id_kh'] = $list['id_kh'];
             header("Location: ../frontend/index.php"); 
         }else{
             header("Location: ../frontend/dangky.php");

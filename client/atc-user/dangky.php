@@ -24,4 +24,19 @@ class user_dk{
         $result = $db->pdo_execute($sql);
         return $result;
     }
+
+    public function id_kh(){
+        $db = new connect();
+        $sql = "SELECT id_kh FROM `khachhang` ORDER by id_kh DESC LIMIT 1";
+        $result = $db->pdo_query($sql);
+        return $result;
+    }
+
+    public function userid($username, $password)
+    {
+        $db = new connect();
+        $select = "select id_kh from khachhang where username='$username' and password='$password'";
+        $result = $db->pdo_query_one($select);
+        return $result;
+    }
 }

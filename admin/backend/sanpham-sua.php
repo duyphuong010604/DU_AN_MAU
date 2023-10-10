@@ -21,7 +21,7 @@ if (isset($_POST['luu'])) {
     $image_name = date('YmdHis') . '.' . $image_ext;
 
     // cau hinh duong dan de di chuyen file 
-    $path = "../uploads/" . $image_name;
+    $path = "../../uploads/" . $image_name;
 
     if (move_uploaded_file($file, $path)) {
         if (

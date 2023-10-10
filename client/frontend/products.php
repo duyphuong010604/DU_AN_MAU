@@ -47,7 +47,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 mx-auto text-center mt-7 mb-5">
-                        <h5 class="fw-bold fs-3 fs-lg-5 lh-sm">Products</h5>
+                        <h5 class="fw-bold fs-3 fs-lg-5 lh-sm">Sản phẩm</h5>
                     </div>
                     <div class="col-12">
                         <div class="row">
@@ -57,19 +57,21 @@
                             
                             $sanpham = new Sanpham();
                             $rows = $sanpham->get_list();
+                            // var_dump($rows);
                             foreach ($rows as $row) :
+                                
                             ?>
                                 <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100">
-                                    <div class="card card-span h-100 text-white"><img class="img-fluid h-100" src="<?=$row['hinhanh']?>" alt="..." />
+                                    <div class="card card-span h-100 text-white"><img class="img-fluid h-100" src="../../uploads/<?=$row['hinhanh']?>" alt="..." />
 
                                         <div class="card-body ps-0 bg-200">
                                             <h5 class="fw-bold text-1000 text-truncate"><?=$row['ten']?></h5>
                                             <div class="fw-bold"><span class="text-primary"><?=number_format($row['gia'])?>VND</span></div>
                                             <div class="d-flex lh-1 flex-row mb-5">
-                                                <a href="#"><button class="btn btn-success badge me-2 " type="submit" style="font-size: 14px;" name="xem">See details</button></a>
+                                                <a href="products_detail.php?id_sp=<?=$row['id_sp']?>"><button class="btn btn-success badge me-2 " type="submit" style="font-size: 14px;" name="xem">Xem chi tiết</button></a>
                                                 <form action="#" method="post">
                                                     <input type="hidden" name="id_sp" id="" value="">
-                                                    <button class="btn btn-danger badge " style="font-size: 14px;" type="submit" name="them">Add to cart</button>
+                                                    <button class="btn btn-danger badge " style="font-size: 14px;" type="submit" name="them">Thêm vào giỏ hàng</button>
                                                 </form>
                                             </div>
                                         </div>

@@ -18,16 +18,11 @@ if (isset($_POST['them'])) {
     if (
         $username == '' || $password == '' || $ho == '' || $ten == '' || $email == '' || $diachi == '' || $sdt == '' || $trangthai == ''
     ) {
-        echo $username .
-        $password .
-        $ho .
-        $ten .
-        $email .
-        $diachi .
-        $sdt .
-        $trangthai;
+        
         $_SESSION['messages'] = "Bạn phải nhập thông tin đầy đủ";
+        include "../frontend/them_taikhoannguoidung.php";
     }else{
+        unset($_SESSION['messages']);
         $result = $khachhang->add($username, $password, $email, $ho, $ten, $sdt, $trangthai, $diachi);
         if($result){
             header("Location: ../frontend/danhsach_taikhoannguoidung.php"); 

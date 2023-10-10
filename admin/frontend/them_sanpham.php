@@ -264,7 +264,7 @@
                                 aria-label="Tên sản phẩm"
                                 aria-describedby="ten"
                                 name="ten"
-                                
+                                required
                               />
                             </div>
                           </div>
@@ -283,7 +283,7 @@
                                 aria-label="ID loại sản phẩm"
                                 aria-describedby="id_lsp"
                                 name="id_lsp"
-                                
+                                required
                               />
                             </div>
                           </div>
@@ -299,6 +299,7 @@
                                 class="form-control"
                                 id="hinhanh"
                                 name="hinhanh"
+                                required
                               />         
                             </div>
                           </div>
@@ -317,6 +318,7 @@
                                 aria-label="Giá sản phẩm"
                                 aria-describedby="gia"
                                 name="gia"
+                                required
                               />
                             </div>
                           </div>
@@ -335,6 +337,7 @@
                                 aria-label="Màu sắc sản phẩm"
                                 aria-describedby="mausac"
                                 name="mausac"
+                                required
                               />
                             </div>
                           </div>
@@ -351,6 +354,7 @@
                                 class="form-control"
                                 placeholder="S, M, L, XL"
                                 name="size"
+                                required
                               />
                             </div>
                           </div>
@@ -388,6 +392,7 @@
                                 aria-label="Mô tả"
                                 aria-describedby="mota"
                                 name ="mota"
+                                required
                               />
                             </div>
                           </div>
@@ -418,8 +423,8 @@
                             <div class="input-group input-group-merge">
                               <span id="trangthai" class="input-group-text"
                                 ><i class='bx bx-list-ul'></i></span>
-                              <select name="trangthai" id="" class="form-control form-select">
-                                  <option selected >Chọn</option>
+                              <select name="trangthai" id="" class="form-control form-select" required>
+                                  <option selected disabled>Chọn</option>
                                   <option class="form-control" value="Hiển thị">Hiển thị</option>
                                   <option class="form-control" value="Ẩn">Ẩn</option>
                               </select>
@@ -430,6 +435,7 @@
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary" name="them">Thêm mới sản phẩm</button>
+                            <?php if (isset($_SESSION['messages'])) echo "<br><span style='color: red;'>" . $_SESSION['messages'] . "</span><br>"; ?>
                           </div>
                         </div>
                       </form>

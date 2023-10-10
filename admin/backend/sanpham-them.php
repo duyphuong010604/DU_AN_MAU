@@ -23,7 +23,7 @@ if (isset($_POST['them'])) {
     $image_name = date('YmdHis') . '.' . $image_ext;
 
     // cau hinh duong dan de di chuyen file 
-    $path = "../uploads/" . $image_name;
+    $path = "../../uploads/" . $image_name;
 
     if (move_uploaded_file($file, $path)) {
         if (
@@ -34,15 +34,10 @@ if (isset($_POST['them'])) {
             $mota == "" ||
             $trangthai == "" || $id_lsp == "" || $mausac == ""
         ) {
-            echo $ten .
-                $image_name .
-                $gia .
-                $size .
-                $soluong .
-                $mota .
-                $trangthai;
             $_SESSION['messages'] = "Bạn phải nhập thông tin đầy đủ";
+            include "../frontend/them_sanpham.php";
         } else {
+            unset($_SESSION['messages']);
             $result = $sanpham->add($ten, $image_name, $mausac, $gia, $trangthai, $id_lsp,$size, $mota);
             if ($result) {
                 header("Location: ../frontend/danhsach_sanpham.php");

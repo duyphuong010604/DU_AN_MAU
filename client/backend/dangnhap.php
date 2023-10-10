@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "pdo.php";
 include "../atc-user/dangnhap.php";
 
@@ -12,9 +13,10 @@ if(isset($_POST['dangnhap'])){
         echo $username. $password;
         $_SESSION['message']="Bạn vui lòng điền đầy đủ thông tin";
     }else{
-        if ($user->checkUser($username, $password)) {
+        if ($user->checkUser($username, $password)){
             $result = $user->userid($username, $password);
             $_SESSION['user'] = $username;
+            $_SESSION['id_kh'] = $result['id_kh'];
             header("Location: ../frontend/index.php");            
         }
         else{

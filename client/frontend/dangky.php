@@ -21,9 +21,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
 	<link rel="stylesheet" href="./assets/login/css/style.css">
 	<link rel="stylesheet" href="./assets/login/css/login.css">
 
@@ -57,7 +55,7 @@
 							<div class="text w-100">
 								<h2>Chào bạn đến với Borcelle Store</h2>
 								<p>Bạn đã có tài khoản?</p>
-								<a href="#" class="btn btn-white btn-outline-white">Đăng nhập</a>
+								<a href="dangnhap.php" class="btn btn-white btn-outline-white">Đăng nhập</a>
 							</div>
 						</div>
 						<div class="login-wrap p-4 p-lg-5 ">
@@ -67,7 +65,7 @@
 								</div>
 
 							</div>
-							<form action="../backend/dangky.php" method="post" class="signin-form ">
+							<form action="../backend/dangky.php" method="post" >
 						
                                 <div class="form-group mb-3">
 									<label class="label" for="name">Tên đăng nhập</label>

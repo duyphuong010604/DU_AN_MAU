@@ -1,4 +1,6 @@
-<?php include "html.php"; ?>
+<?php 
+
+include "html.php"; ?>
 
   <body>
     <!-- Layout wrapper -->
@@ -245,7 +247,7 @@
                 <div class="col-xxl">
                   <div class="card mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="mb-0">Thêm mới loại sản phẩm</h5>
+                      <h5 class="mb-0">Thêm mới loại sản phẩm</h5> 
                       <small class="text-muted float-end">Nhập vào ô bên dưới</small>
                     </div>
                     <div class="card-body">
@@ -262,6 +264,7 @@
                                 id="loaisp"
                                 placeholder="Tên loại sản phẩm"
                                 name="loaisp"
+                                required
                               />
                             </div>
                           </div>
@@ -274,18 +277,23 @@
                             <div class="input-group input-group-merge">
                               <span id="trangthai" class="input-group-text"
                                 ><i class='bx bx-list-ul'></i></span>
-                              <select name="trangthai" id="trangthai" class="form-control form-select">
-                                  <option selected >Chọn</option>
+                              <select name="trangthai" id="trangthai" class="form-control form-select" required> 
+                                  <option selected disabled >Chọn</option>
                                   <option class="form-control" value="1">Hiển thị</option>
                                   <option class="form-control" value="0">Ẩn</option>
                               </select>
                             </div>
                           </div>
+                         
                         </div>
+
+                        
+                       
                        
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary" name='them'>Thêm mới</button>
+                            <?php if (isset($_SESSION['messages'])) echo "<br><span style='color: red;'>" . $_SESSION['messages'] . "</span><br>"; ?>
                           </div>
                         </div>
                       </form>

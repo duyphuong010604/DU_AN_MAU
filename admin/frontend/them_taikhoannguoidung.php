@@ -239,7 +239,7 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span id="username" class="input-group-text"><i class="bx bx-user"></i></span>
-                            <input type="text" class="form-control" id="username" placeholder="Nhập tên đăng nhập" aria-describedby="username" name="username"/>
+                            <input type="text" class="form-control" id="username" placeholder="Nhập tên đăng nhập" aria-describedby="username" name="username" required/>
                           </div>
                         </div>
                       </div>
@@ -248,7 +248,7 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span id="basic-icon-default-password" class="input-group-text"><i class='bx bx-text'></i></span>
-                            <input type="password" class="form-control" id="password" placeholder="Mật khẩu" name="password" />
+                            <input type="password" class="form-control" id="password" placeholder="Mật khẩu" name="password" required />
                             <span id="basic-icon-default-password icon-hidden" class="input-group-text">
                               <i class='bx bx-show' onclick="changeTypePassword()"></i>
                             </span>
@@ -262,7 +262,7 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span id="ho" class="input-group-text"><i class='bx bx-user-circle'></i></span>
-                            <input type="text" class="form-control" id="ho" placeholder="Họ và tên đệm" name="ho" />
+                            <input type="text" class="form-control" id="ho" placeholder="Họ và tên đệm" name="ho" required/>
                           </div>
                         </div>
                       </div>
@@ -271,7 +271,7 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span id="ten" class="input-group-text"><i class='bx bx-user-circle'></i></span>
-                            <input type="text" class="form-control" id="ten" placeholder="Tên" name="ten" aria-describedby="ten" />
+                            <input type="text" class="form-control" id="ten" placeholder="Tên" name="ten" aria-describedby="ten" required/>
                           </div>
                         </div>
                       </div>
@@ -280,7 +280,7 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span id="diachi" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                            <input type="text" id="diachi" class="form-control" placeholder="ACME Inc." aria-label="ACME Inc." aria-describedby="diachi" name="diachi" />
+                            <input type="text" id="diachi" class="form-control" placeholder="ACME Inc." aria-label="ACME Inc." aria-describedby="diachi" name="diachi" required/>
                           </div>
                         </div>
                       </div>
@@ -289,7 +289,7 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                            <input type="text" id="email" class="form-control" placeholder="email" aria-label="email" aria-describedby="email" name="email" />
+                            <input type="text" id="email" class="form-control" placeholder="email" aria-label="email" aria-describedby="email" name="email" required/>
                             <span id="email" class="input-group-text">@example.com</span>
                           </div>
 
@@ -300,7 +300,7 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span id="sdt" class="input-group-text"><i class="bx bx-phone"></i></span>
-                            <input type="text" id="sdt" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="sdt" name="sdt" />
+                            <input type="text" id="sdt" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="sdt" name="sdt" required />
                           </div>
                         </div>
                       </div>
@@ -343,7 +343,7 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span id="trangthai " class="input-group-text"><i class='bx bx-list-ul'></i></span>
-                            <select name="trangthai" id="trangthai" class="form-control form-select">
+                            <select name="trangthai" id="trangthai" class="form-control form-select" required>
                               <option selected disabled>Chọn</option>
                               <option class="form-control" value="Cho phép">Cho phép</option>
                               <option class="form-control" value="Chặn">Chặn</option>
@@ -355,6 +355,7 @@
                       <div class="row justify-content-end">
                         <div class="col-sm-10">
                           <button type="submit" class="btn btn-primary" name="them">Thêm mới</button>
+                          <?php if (isset($_SESSION['messages'])) echo "<br><span style='color: red;'>" . $_SESSION['messages'] . "</span><br>"; ?>
                         </div>
                       </div>
                     </form>

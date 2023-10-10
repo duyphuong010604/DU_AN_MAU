@@ -15,8 +15,16 @@ class sanpham
     public function get_list()
     {
         $db = new connect();
-        $sql = "SELECT * FROM sanpham";
+        $sql = "SELECT * FROM sanpham where trangthai not like 'Ẩn'";
         $result = $db->pdo_query($sql);
         return $result;
+    }
+
+    public function getById($id){
+        $db = new connect();
+        $sql = "SELECT * FROM sanpham WHERE id_sp = $id ";
+        $result = $db->pdo_query_one($sql);
+        return $result;
+        
     }
 }

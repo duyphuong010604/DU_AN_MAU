@@ -254,7 +254,7 @@
                       
                       <td><?=$row['id_sp']?></td>
 
-                      <td><span class="badge <?php if(trim($row['trangthai'])=='Ẩn') {echo 'bg-label-secondary';}else{echo'bg-label-success';}?> me-1"><?=$row['trangthai_bl']?></span></td>
+                      <td><span class="badge <?php if($row['trangthai_bl']=='Ẩn') {echo 'bg-label-secondary';}else{echo'bg-label-success';}?> me-1"><?=$row['trangthai_bl']?></span></td>
                       <td>
                         <div class="dropdown">
                           <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

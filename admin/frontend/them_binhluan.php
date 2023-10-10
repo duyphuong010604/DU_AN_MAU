@@ -239,7 +239,7 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span id="username_sp" class="input-group-text"><i class='bx bxl-product-hunt'></i></span>
-                            <input type="text" class="form-control" id="id_sp" placeholder="ID sản phẩm"  name="id_sp" />
+                            <input type="text" class="form-control" id="id_sp" placeholder="ID sản phẩm"  name="id_sp" required/>
                           </div>
                         </div>
                       </div>
@@ -248,7 +248,7 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span id="id_kh" class="input-group-text"><i class='bx bxs-user'></i></span>
-                            <input type="text" class="form-control" id="id_kh" placeholder="ID tài khoản bình luận" aria-label="John Doe" aria-describedby="id_kh" name="id_kh" />
+                            <input type="text" class="form-control" id="id_kh" placeholder="ID tài khoản bình luận" aria-label="John Doe" aria-describedby="id_kh" name="id_kh" required/>
                           </div>
                         </div>
                       </div>
@@ -257,7 +257,7 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span id="noidung_bl" class="input-group-text"><i class='bx bx-text'></i></span>
-                            <input type="text" class="form-control" id="noidung_bl" placeholder="Nhập nội dung"  name="noidung_bl" />
+                            <input type="text" class="form-control" id="noidung_bl" placeholder="Nhập nội dung"  name="noidung_bl" required />
                           </div>
                         </div>
                       </div>
@@ -269,10 +269,10 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span id="trangthai_bl" class="input-group-text"><i class='bx bx-list-ul'></i></span>
-                            <select name="trangthai_bl" id="trangthai_bl" class="form-control form-select">
+                            <select name="trangthai_bl" id="trangthai_bl" class="form-control form-select" required>
                               <option selected disabled>Chọn</option>
-                              <option class="form-control" value="Hiển thị">Hiển thị</option>
-                              <option class="form-control" value="Ẩn">Ẩn</option>
+                              <option class="form-control" value="Hiển thị" >Hiển thị</option>
+                              <option class="form-control" value="Ẩn" >Ẩn</option>
                             </select>
                           </div>
                         </div>
@@ -281,6 +281,7 @@
                       <div class="row justify-content-end">
                         <div class="col-sm-10">
                           <button type="submit" class="btn btn-primary" name='them'>Thêm mới bình luận</button>
+                          <?php if (isset($_SESSION['messages'])) echo "<br><span style='color: red;'>" . $_SESSION['messages'] . "</span><br>"; ?>
                         </div>
                       </div>
                     </form>

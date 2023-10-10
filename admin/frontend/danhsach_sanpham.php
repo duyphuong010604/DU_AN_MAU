@@ -266,7 +266,7 @@
                       <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?=$row['id_sp']?></strong></td>
                         <td>
-                            <img src="../uploads/<?=$row["hinhanh"]?>" alt="Ảnh sản phẩm" width="60px" height="60px">
+                            <img src="../../uploads/<?=$row["hinhanh"]?>" alt="Ảnh sản phẩm" width="60px" height="60px">
                         </td>
                         <td><?=$row["ten"]?></td>
                         <th><?=number_format($row["gia"])?>VND</th>

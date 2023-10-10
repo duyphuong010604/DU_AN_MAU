@@ -57,7 +57,7 @@
 							<div class="text w-100">
 								<h2>Chào bạn đến với Borcelle Store</h2>
 								<p>Bạn chưa có tài khoản?</p>
-								<a href="#" class="btn btn-white btn-outline-white">Đăng ký</a>
+								<a href="dangky.php" class="btn btn-white btn-outline-white">Đăng ký</a>
 							</div>
 						</div>
 						<div class="login-wrap p-4 p-lg-5 ">

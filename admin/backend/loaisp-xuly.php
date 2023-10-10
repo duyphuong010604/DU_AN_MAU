@@ -11,7 +11,9 @@ $loaisp = new loaisp();
 if($ten_lsp == "" || $trangthai_lsp == "" ){
     
     $_SESSION['messages'] = "Bạn phải nhập thông tin đầy đủ";
+    include "../frontend/them_loaisp.php";
 }else{
+    unset($_SESSION['messages']);
     $result = $loaisp->add($ten_lsp,$trangthai_lsp);
     if($result){
         header("Location: ../frontend/danhsach_loaisp.php"); 

@@ -273,10 +273,10 @@
                       <td>Nội dung bình luận</td>
                       <td><?=$rows1[0]['noidung_bl']?></td>
                     </tr>
-                    <!-- <tr>
+                    <tr>
                       <td>Trả lời</td>
-                      <td></td>
-                    </tr> -->
+                      <td><?=$rows[0]['traloi']?></td>
+                    </tr>
                     
                     <tr>
                       <td>Trạng thái</td>
