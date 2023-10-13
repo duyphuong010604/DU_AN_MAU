@@ -263,7 +263,7 @@
                     </tr>
                     <tr>
                       <td>Hình ảnh</td>
-                      <td><img src="../uploads/<?=$rows1[0]['hinhanh']?>" alt="Ảnh sản phẩm" width="60px" height="60px"></td>
+                      <td><img src="../../uploads/<?=$rows1[0]['hinhanh']?>" alt="Ảnh sản phẩm" width="60px" height="60px"></td>
                     </tr>
                     <!-- <tr>
                       <td>Tên tài khoản bình luận</td>

@@ -19,8 +19,6 @@ if (isset($_POST['them'])) {
 
         $result = $binhluan->add($noidung_bl, $trangthai_bl, $id_sp);
 
-
-
         if ($result) {
             $rows = $binhluan->get_list();
             $chuoi_id = $chitietbl->id_bl();

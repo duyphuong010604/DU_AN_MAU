@@ -14,6 +14,7 @@ if ($username == "" || $password == "") {
     if ($admin->checkUser($username, $password)) {
         $result = $admin->userid($username, $password);
         $_SESSION['admin'] = $username;
+       
         header("Location: ../frontend/index.php");            
     }
     else{

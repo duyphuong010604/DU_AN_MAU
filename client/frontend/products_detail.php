@@ -184,24 +184,27 @@ session_start();
                             if (!($bl_rows) == '') :
                                 foreach ($bl_rows as $bl) :
                             ?>
-                                    <div class="col-10 content ">
-                                        <h5 class="fw-bold pt-3 ps-1 ">
-                                            <?= $bl['username'] ?>
+                                    <div class="col-12 content ">
+                                        <h5 class="fw-bold pt-3 text-success ps-1 ">
+                                        <img src="../../uploads/user.jpg" width="40px" height="40px" class="rounded-circle">   
+                                        <?= $bl['username'] ?>
                                         </h5>
                                         <p class="ps-5 border border-2">
                                             <?= $bl['noidung_bl'] ?>
                                         </p>
                                     </div>
 
-                                    <div class="col-2">
+                                    <!-- <div class="col-2">
                                         <p class="text-end text-danger mt-5"><a href="" class="text-danger" data-bs-toggle="modal" data-bs-target="<?php if (isset($_SESSION['user']))
                                                                                                                                                         echo "#traloi" ?>">Trả
                                                 lời</a></p>
-                                    </div>
+                                    </div> -->
                                     <?php if (!empty($bl['traloi'])) : ?>
-                                        <div class="col-9 offset-1">
-                                            <h5 class="fw-bold pt-3 ps-1 ">
-                                                ADMIN
+                                        <div class="col-2"><h5 class="text-danger mt-1 ms-2">Trả lời đánh giá</h5></div>
+                                        <div class="col-10">
+                                            <h5 class="fw-bold pt-3 text-primary ps-1 ">
+                                            <img src="../../uploads/906343.png" width="40px" height="40px" class="rounded-circle">   
+                                            ADMIN
                                             </h5>
                                             <p class="ps-5 border border-2">
                                                 <?= $bl['traloi'] ?>
@@ -212,14 +215,14 @@ session_start();
                                 endforeach;
                             endif;
                             ?>
-                            <!-- Modal trloi -->
+                            <!-- Modal trloi
                             <div class="modal fade" id="traloi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Trả lời đánh giá cho sản
                                                 phẩm
-                                                <?= $row['ten'] ?>
+                                                
                                             </h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
@@ -242,7 +245,7 @@ session_start();
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="card-footer bg-transparent ">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-center">

@@ -10,7 +10,8 @@
         <div class="app-brand demo">
           <a href="index.php" class="app-brand-link">
             <span class="app-brand-logo demo">
-              <img class="img" src="../content/assets/img/favicon/White & Black Minimalist Logo Distro Fashion.png" alt="logo" width="42px" height="42px">
+              <img class="img" src="../content/assets/img/favicon/White & Black Minimalist Logo Distro Fashion.png"
+                alt="logo" width="42px" height="42px">
             </span>
             <span class="app-brand-text demo menu-text fw-bolder ms-2">BORCELLE</span>
             <span class="text-primary text-admin ps-1">Admin</span>
@@ -128,7 +129,9 @@
       <div class="layout-page">
         <!-- Navbar -->
 
-        <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+        <nav
+          class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+          id="layout-navbar">
           <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
             <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
               <i class="bx bx-menu bx-sm"></i>
@@ -140,7 +143,10 @@
             <div class="navbar-nav align-items-center">
               <div class="nav-item d-flex align-items-center">
                 <i class="bx bx-search fs-4 lh-0"></i>
-                <input type="text" class="form-control border-0 shadow-none" placeholder="Search..." aria-label="Search..." />
+                <form action="../backend/timkiem.php" method="post">
+                  <input type="text" class="form-control border-0 shadow-none" placeholder="Search..."
+                    aria-label="Search..." name="timkiem-loai"/>
+                </form>
               </div>
             </div>
             <!-- /Search -->
@@ -148,7 +154,9 @@
             <ul class="navbar-nav flex-row align-items-center ms-auto">
               <!-- Place this tag where you want the button to render. -->
               <li class="nav-item lh-1 me-3">
-                <a class="github-button" href="https://github.com/themeselection/sneat-html-admin-template-free" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
+                <a class="github-button" href="https://github.com/themeselection/sneat-html-admin-template-free"
+                  data-icon="octicon-star" data-size="large" data-show-count="true"
+                  aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
               </li>
 
               <!-- User -->
@@ -222,14 +230,15 @@
           <!-- Content -->
 
           <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lí loại sản phẩm /</span> Danh sách loại sản phẩm</h4>
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lí loại sản phẩm /</span> Danh
+              sách loại sản phẩm</h4>
 
             <!-- Bootstrap Table with Header - Footer -->
             <div class="card">
               <h5 class="card-header">Danh sách loại sản phẩm</h5>
               <div class="table-responsive text-nowrap">
 
-                <table class="table">
+                <table class="table" id="example">
                   <thead>
                     <tr>
                       <th>ID loại sản phẩm</th>
@@ -246,27 +255,41 @@
                     $loaisp = new loaisp();
                     $rows = $loaisp->get_list();
                     foreach ($rows as $row):
-                    ?>
+                      ?>
                       <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?= $row['id_lsp']; ?></strong></td>
-                        <td><?= $row['ten']; ?></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
+                            <?= $row['id_lsp']; ?>
+                          </strong></td>
+                        <td>
+                          <?= $row['ten']; ?>
+                        </td>
 
-                        <td><span class="badge  <?php if(trim($row['trangthai'])=='Ẩn') {echo 'bg-label-secondary';}else{echo'bg-label-success';}?> me-1"><?= $row['trangthai']?></span></td>
+                        <td><span
+                            class="badge  <?php if (trim($row['trangthai']) == 'Ẩn') {
+                              echo 'bg-label-secondary';
+                            } else {
+                              echo 'bg-label-success';
+                            } ?> me-1">
+                            <?= $row['trangthai'] ?>
+                          </span></td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="chitiet_loaisp.php?id_lsp=<?= $row['id_lsp']?>"><i class='bx bx-detail me-1'></i>Chi tiết</a>
-                              <a class="dropdown-item" href="sua_loaisp.php?id_lsp=<?=$row['id_lsp']?>"><i class="bx bx-edit-alt me-1"></i>Sửa</a>
-                              <a class="dropdown-item" href="../backend/loaisp-xoa.php?id_lsp=<?=$row['id_lsp']?>"><i class="bx bx-trash me-1"></i> Xóa</a>
+                              <a class="dropdown-item" href="chitiet_loaisp.php?id_lsp=<?= $row['id_lsp'] ?>"><i
+                                  class='bx bx-detail me-1'></i>Chi tiết</a>
+                              <a class="dropdown-item" href="sua_loaisp.php?id_lsp=<?= $row['id_lsp'] ?>"><i
+                                  class="bx bx-edit-alt me-1"></i>Sửa</a>
+                              <a class="dropdown-item" href="../backend/loaisp-xoa.php?id_lsp=<?= $row['id_lsp'] ?>"><i
+                                  class="bx bx-trash me-1"></i> Xóa</a>
                             </div>
                           </div>
                         </td>
                       </tr>
-                    
-                  
+
+
                     <?php endforeach; ?>
                   </tbody>
                   <tfoot class="table-border-bottom-0">
@@ -277,10 +300,12 @@
                           <nav aria-label="Page navigation">
                             <ul class="pagination">
                               <li class="page-item first">
-                                <a class="page-link" href="javascript:void(0);"><i class="tf-icon bx bx-chevrons-left"></i></a>
+                                <a class="page-link" href="javascript:void(0);"><i
+                                    class="tf-icon bx bx-chevrons-left"></i></a>
                               </li>
                               <li class="page-item prev">
-                                <a class="page-link" href="javascript:void(0);"><i class="tf-icon bx bx-chevron-left"></i></a>
+                                <a class="page-link" href="javascript:void(0);"><i
+                                    class="tf-icon bx bx-chevron-left"></i></a>
                               </li>
                               <li class="page-item">
                                 <a class="page-link" href="javascript:void(0);">1</a>
@@ -298,10 +323,12 @@
                                 <a class="page-link" href="javascript:void(0);">5</a>
                               </li>
                               <li class="page-item next">
-                                <a class="page-link" href="javascript:void(0);"><i class="tf-icon bx bx-chevron-right"></i></a>
+                                <a class="page-link" href="javascript:void(0);"><i
+                                    class="tf-icon bx bx-chevron-right"></i></a>
                               </li>
                               <li class="page-item last">
-                                <a class="page-link" href="javascript:void(0);"><i class="tf-icon bx bx-chevrons-right"></i></a>
+                                <a class="page-link" href="javascript:void(0);"><i
+                                    class="tf-icon bx bx-chevrons-right"></i></a>
                               </li>
                             </ul>
                           </nav>
@@ -336,7 +363,8 @@
   <!-- / Layout wrapper -->
 
   <div class="buy-now">
-    <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank" class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
+    <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank"
+      class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
   </div>
 
   <!-- Core JS -->
@@ -358,6 +386,9 @@
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script>
+    new DataTable('#example');
+  </script>
 </body>
 
 </html>
