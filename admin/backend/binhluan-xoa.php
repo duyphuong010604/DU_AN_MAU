@@ -6,10 +6,15 @@ $binhluan = new binhluan();
 
 if($_GET['id_bl']){
     $id_bl = $_GET['id_bl'];
-    $result = $binhluan->delete($id_bl);
-    if ($result){
-        header("Location:../frontend/danhsach_binhluan.php");
-    }else{
-        echo "that bai";
+    try{
+        $result = $binhluan->delete($id_bl);
+        if ($result){
+            header("Location:../frontend/danhsach_binhluan.php");
+        }else{
+            echo "that bai";
+        }
+    }catch(PDOException $e){
+        die("Error deleting");
     }
+   
 }

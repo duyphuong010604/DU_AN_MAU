@@ -12,8 +12,8 @@ if (isset($_GET['id_lsp'])) :
         }else{
             echo "that bai";
         } 
-    } catch (PDOException $e) {
-        die("Lỗi : " ) ;  
+    } catch (PDOException $e ) {
+        die("Lỗi " ) ;  
     }
     
 endif;

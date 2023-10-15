@@ -129,98 +129,7 @@
       <div class="layout-page">
         <!-- Navbar -->
 
-        <nav
-          class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-          id="layout-navbar">
-          <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-            <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-              <i class="bx bx-menu bx-sm"></i>
-            </a>
-          </div>
-
-          <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-            <!-- Search -->
-            <div class="navbar-nav align-items-center">
-              <div class="nav-item d-flex align-items-center">
-                <i class="bx bx-search fs-4 lh-0"></i>
-                <form action="../backend/timkiem.php" method="post">
-                  <input type="text" class="form-control border-0 shadow-none" placeholder="Search..."
-                    aria-label="Search..." name="timkiem-loai"/>
-                </form>
-              </div>
-            </div>
-            <!-- /Search -->
-
-            <ul class="navbar-nav flex-row align-items-center ms-auto">
-              <!-- Place this tag where you want the button to render. -->
-              <li class="nav-item lh-1 me-3">
-                <a class="github-button" href="https://github.com/themeselection/sneat-html-admin-template-free"
-                  data-icon="octicon-star" data-size="large" data-show-count="true"
-                  aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
-              </li>
-
-              <!-- User -->
-              <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                  <div class="avatar avatar-online">
-                    <img src="../content/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-                  </div>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <div class="d-flex">
-                        <div class="flex-shrink-0 me-3">
-                          <div class="avatar avatar-online">
-                            <img src="../content/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-                          </div>
-                        </div>
-                        <div class="flex-grow-1">
-                          <span class="fw-semibold d-block">John Doe</span>
-                          <small class="text-muted">Admin</small>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <div class="dropdown-divider"></div>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <i class="bx bx-user me-2"></i>
-                      <span class="align-middle">My Profile</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <i class="bx bx-cog me-2"></i>
-                      <span class="align-middle">Settings</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <span class="d-flex align-items-center align-middle">
-                        <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                        <span class="flex-grow-1 align-middle">Billing</span>
-                        <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <div class="dropdown-divider"></div>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="auth-login-basic.html">
-                      <i class="bx bx-power-off me-2"></i>
-                      <span class="align-middle">Log Out</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <!--/ User -->
-            </ul>
-          </div>
-        </nav>
+        <?php include "nav-main.php" ?>
 
         <!-- / Navbar -->
 
@@ -234,11 +143,11 @@
               sách loại sản phẩm</h4>
 
             <!-- Bootstrap Table with Header - Footer -->
-            <div class="card">
+            <div class="card ">
               <h5 class="card-header">Danh sách loại sản phẩm</h5>
-              <div class="table-responsive text-nowrap">
+              <div class=" p-2 table-responsive text-nowrap">
 
-                <table class="table" id="example">
+                <table class="table mb-2" id="example" >
                   <thead>
                     <tr>
                       <th>ID loại sản phẩm</th>
@@ -293,49 +202,7 @@
                     <?php endforeach; ?>
                   </tbody>
                   <tfoot class="table-border-bottom-0">
-                    <tr>
-                      <th>
-                        <div class="demo-inline-spacing">
-                          <!-- Basic Pagination -->
-                          <nav aria-label="Page navigation">
-                            <ul class="pagination">
-                              <li class="page-item first">
-                                <a class="page-link" href="javascript:void(0);"><i
-                                    class="tf-icon bx bx-chevrons-left"></i></a>
-                              </li>
-                              <li class="page-item prev">
-                                <a class="page-link" href="javascript:void(0);"><i
-                                    class="tf-icon bx bx-chevron-left"></i></a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="javascript:void(0);">1</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="javascript:void(0);">2</a>
-                              </li>
-                              <li class="page-item active">
-                                <a class="page-link" href="javascript:void(0);">3</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="javascript:void(0);">4</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="javascript:void(0);">5</a>
-                              </li>
-                              <li class="page-item next">
-                                <a class="page-link" href="javascript:void(0);"><i
-                                    class="tf-icon bx bx-chevron-right"></i></a>
-                              </li>
-                              <li class="page-item last">
-                                <a class="page-link" href="javascript:void(0);"><i
-                                    class="tf-icon bx bx-chevrons-right"></i></a>
-                              </li>
-                            </ul>
-                          </nav>
-                          <!--/ Basic Pagination -->
-                        </div>
-                      </th>
-                    </tr>
+                    
                   </tfoot>
                 </table>
               </div>
@@ -362,10 +229,7 @@
   </div>
   <!-- / Layout wrapper -->
 
-  <div class="buy-now">
-    <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank"
-      class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
-  </div>
+  
 
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
@@ -386,9 +250,12 @@
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <script>
-    new DataTable('#example');
-  </script>
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src=" https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        new DataTable('#example');
+    </script>
 </body>
 
 </html>
