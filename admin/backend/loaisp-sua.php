@@ -17,11 +17,11 @@ if (isset($_POST["luu"])) {
             if ($result) {
                 header("Location: ../frontend/danhsach_loaisp.php");
             } else {
-                echo "thatbai";
+                header("Location: ../../error/404.html");
             }
         }
     } catch (PDOException $e) {
-        die("Loi");
+        header("Location: ../../error/500.html");
     }
 
 }

@@ -1,4 +1,20 @@
 <?php session_start();?>
+<?php
+include "../backend/pdo.php";
+include "../atc-user/timkiem.php";
+
+$timkiem = new timkiem();
+try{
+    if(isset($_POST["search"])){
+        $search = trim($_POST["search"]);
+        $result = $timkiem->timkiem_sp($search);
+        
+    }
+}catch(PDOException $e){
+    die("error");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
 
@@ -11,7 +27,7 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title> Sản phẩm - Borcelle </title>
+    <title> Tìm kiếm - Borcelle </title>
 
 
     <!-- ===============================================-->
@@ -48,18 +64,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 mx-auto text-center mt-7 mb-5">
-                        <h5 class="fw-bold fs-3 fs-lg-5 lh-sm">Sản phẩm</h5>
+                        <h5 class="fw-bold fs-3 fs-lg-5 lh-sm">Sản phẩm Tìm Kiếm</h5>
                     </div>
                     <div class="col-12">
                         <div class="row">
                             <?php
-                            include "../backend/pdo.php";
-                            include "../atc-user/sanpham.php";
-                            
-                            $sanpham = new Sanpham();
-                            $rows = $sanpham->get_list();
-                            // var_dump($rows);
-                            foreach ($rows as $row) :
+                            if($result):
+                            foreach ($result as $row) :
                                 
                             ?>
                                 <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100">
@@ -81,7 +92,17 @@
                                     </div>
                                 </div>
 
-                            <?php endforeach; ?>
+                            <?php 
+                            endforeach; 
+                      
+                            ?>
+                            <?php else: ?>
+                                <div class="col-sm-12 col-md-12 mb-3 mb-md-0 h-100">
+                                    <p class="text-center fw-bold text-danger">
+                                        Không tìm thấy sản phẩm mà bạn tiềm kiếm
+                                    </p>
+                                </div>
+                            <?php endif; ?>
                         </div>
                         
                     </div>

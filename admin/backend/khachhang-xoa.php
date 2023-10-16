@@ -11,10 +11,10 @@ if ($_GET['id_kh']) {
         if ($result) {
             header("Location:../frontend/danhsach_taikhoannguoidung.php");
         } else {
-            echo "that bai";
+            header("Location: ../../error/404.html");
         }
     } catch (PDOException $e) {
-        die("Lỗi!");
+        header("Location: ../../error/500.html");
     }
 
 }

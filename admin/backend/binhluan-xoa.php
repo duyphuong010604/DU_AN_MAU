@@ -11,10 +11,10 @@ if($_GET['id_bl']){
         if ($result){
             header("Location:../frontend/danhsach_binhluan.php");
         }else{
-            echo "that bai";
+            header("Location: ../../error/404.html");
         }
     }catch(PDOException $e){
-        die("Error deleting");
+        header("Location: ../../error/500.html");
     }
    
 }

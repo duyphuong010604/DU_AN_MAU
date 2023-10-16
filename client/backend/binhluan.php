@@ -14,7 +14,6 @@ if(isset($_POST['them'])){
     $id_kh = $_SESSION['id_kh'] ?? "";
     $trangthai = "Hiển thị";
     
-
     if($id_kh == '' || $noidung_bl == '' || $id_sp == ''){
         $_SESSION['messages'] = "Bạn phải nhập thông tin đầy đủ";
         include "../frontend/products_detail.php";

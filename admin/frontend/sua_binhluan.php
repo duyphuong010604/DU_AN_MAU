@@ -25,7 +25,7 @@
 
         <ul class="menu-inner py-1">
           <!-- Dashboard -->
-          <li class="menu-item active">
+          <li class="menu-item ">
             <a href="index.php" class="menu-link">
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
               <div data-i18n="Analytics">Bảng điều khiển</div>
@@ -99,14 +99,14 @@
             </ul>
           </li>
 
-          <li class="menu-item">
+          <li class="menu-item active open">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
               <i class="menu-icon tf-icons bx bx-layout"></i>
               <div data-i18n="Tables">Quản lí bình luận </div>
             </a>
 
             <ul class="menu-sub">
-              <li class="menu-item">
+              <li class="menu-item active">
                 <a href="danhsach_binhluan.php" class="menu-link">
                   <div data-i18n="Tables">Danh sách bình luận</div>
                 </a>
@@ -137,7 +137,7 @@
           <!-- Content -->
 
           <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lí bình luận / Thêm mới bình luận </span>/ Sửa bình luận</h4>
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lí bình luận / Danh sách bình luận </span>/ Sửa bình luận</h4>
 
             <!-- Basic Layout & Basic with Icons -->
             <div class="row">
@@ -225,7 +225,7 @@
                           <div class="input-group input-group-merge">
                             <span id="trangthai_bl" class="input-group-text"><i class='bx bx-list-ul'></i></span>
                             <select name="trangthai_bl" id="trangthai_bl" class="form-control form-select">
-                              <option selected disabled>Chọn</option>
+                              <option disabled>Chọn</option>
                               <option class="form-control" value="Hiển thị" value="Hiển thị" <?php if ($rows["trangthai_bl"] == "Hiển thị") echo "selected"; ?>>Hiển thị</option>
                               <option class="form-control" value="Ẩn" value="Ẩn" <?php if ($rows['trangthai_bl'] == "Ẩn") echo "selected"; ?>>Ẩn</option>
                             </select>

@@ -24,7 +24,7 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
+            <li class="menu-item ">
               <a href="index.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Bảng điều khiển</div>
@@ -37,19 +37,19 @@
               <span class="menu-header-text">Quản lí</span>
             </li>
             <!-- Layouts -->
-            <li class="menu-item">
+            <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Quản lí tài khoản người dùng</div>
               </a>
 
               <ul class="menu-sub">
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="danhsach_taikhoannguoidung.php" class="menu-link">
                     <div data-i18n="Tables">Danh sách tài khoản</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item ">
                   <a href="them_taikhoannguoidung.php" class="menu-link">
                     <div data-i18n="Tables">Thêm mới tài khoản</div>
                   </a>

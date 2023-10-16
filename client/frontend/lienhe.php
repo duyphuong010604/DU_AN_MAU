@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
 
@@ -10,7 +11,7 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title> Home - Borcelle </title>
+    <title> Liên hệ - Borcelle </title>
 
 
     <!-- ===============================================-->

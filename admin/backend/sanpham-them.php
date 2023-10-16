@@ -55,7 +55,7 @@ if (isset($_POST['them'])) {
             }
         }
     } catch (PDOException $e) {
-        die("Error");
+        header("Location: ../../error/500.html");
     }
 
 

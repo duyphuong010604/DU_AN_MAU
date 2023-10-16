@@ -14,19 +14,23 @@ session_start();
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title> Home - Borcelle </title>
+    <title> Chi tiết sản phẩm - Borcelle </title>
 
 
     <!-- ===============================================-->
     <!--    Favicons-->
     <!-- ===============================================-->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
     <link rel="manifest" href="assets/img/favicons/manifest.json">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="style.css">
@@ -69,9 +73,11 @@ session_start();
                                 <div class="card mb-3">
                                     <div class="row g-0">
                                         <div class="col-md-6 ">
-                                            <img src="../../uploads/<?= $row['hinhanh'] ?>" class="rounded mx-auto d-block " height="500px" alt="...">
+                                            <img src="../../uploads/<?= $row['hinhanh'] ?>"
+                                                class="rounded mx-auto d-block " height="500px" alt="...">
                                         </div>
-                                        <div class="col-md-6 text-detailv border-warning border-start border-4 mt-2 mb-2">
+                                        <div
+                                            class="col-md-6 text-detailv border-warning border-start border-4 mt-2 mb-2">
                                             <div class="card-body">
                                                 <div class="text-top">
                                                     <h2 class="card-title text-warning">
@@ -132,12 +138,17 @@ session_start();
                             <h5 class="text-star">Đánh giá sản phẩm </h5>
                             <div class="text-end">
                                 <p>Bạn muốn bình luận sản phẩm này?</p>
-                                <a href="#" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="<?php if (isset($_SESSION['user']))
-                                                                                                                        echo "#exampleModal" ?>">Gửi
+                                <a href="#" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="<?php if (isset($_SESSION['user'])) {
+                                    echo "#exampleModal";
+                                } else {
+                                    echo "#tb_dangnhap";
+                                }
+                                ?>">Gửi
                                     đánh giá</a>
                             </div>
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -145,13 +156,15 @@ session_start();
                                                 phẩm
                                                 <?= $row['ten'] ?>
                                             </h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                         </div>
                                         <form action="../backend/binhluan.php" method="post">
                                             <div class="modal-body">
                                                 <div class="row">
                                                     <div class="col-8 offset-2">
-                                                        <img src="../../uploads/<?= $row['hinhanh'] ?>" class="rounded mx-auto d-block " height="120px" alt="...">
+                                                        <img src="../../uploads/<?= $row['hinhanh'] ?>"
+                                                            class="rounded mx-auto d-block " height="120px" alt="...">
                                                     </div>
                                                 </div>
 
@@ -159,16 +172,49 @@ session_start();
                                                     <div class=" col-12 mb-3">
                                                         <label for="noidung_bl" class="form-label">Nội dung đánh
                                                             giá</label>
-                                                        <textarea class="form-control" id="noidung_bl" rows="3" name="noidung_bl"></textarea>
+                                                        <textarea class="form-control" id="noidung_bl" rows="3"
+                                                            name="noidung_bl"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Thoát</button>
                                                 <button type="submit" class="btn btn-danger" name="them">Gửi đánh
                                                     giá</button>
                                             </div>
                                         </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal tb_dang nhap -->
+                            <div class="modal fade" id="tb_dangnhap" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Vui lòng đăng nhập để có
+                                                thể đánh giá sản phẩm
+                                            </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-6 offset-3">
+                                                    <button class="btn btn-primary"><a href="dangnhap.php">Đăng nhập tài
+                                                            khoản</a></button>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -180,14 +226,14 @@ session_start();
                             $chitietbl = new chitiet_bl();
                             $bl_rows = $chitietbl->getById($id_sp);
                             // echo "<pre>".var_dump($bl_rows)."</pre>";
-
-                            if (!($bl_rows) == '') :
-                                foreach ($bl_rows as $bl) :
-                            ?>
+                            
+                            if (!($bl_rows) == ''):
+                                foreach ($bl_rows as $bl):
+                                    ?>
                                     <div class="col-12 content ">
                                         <h5 class="fw-bold pt-3 text-success ps-1 ">
-                                        <img src="../../uploads/user.jpg" width="40px" height="40px" class="rounded-circle">   
-                                        <?= $bl['username'] ?>
+                                            <img src="../../uploads/user.jpg" width="40px" height="40px" class="rounded-circle">
+                                            <?= $bl['username'] ?>
                                         </h5>
                                         <p class="ps-5 border border-2">
                                             <?= $bl['noidung_bl'] ?>
@@ -196,22 +242,25 @@ session_start();
 
                                     <!-- <div class="col-2">
                                         <p class="text-end text-danger mt-5"><a href="" class="text-danger" data-bs-toggle="modal" data-bs-target="<?php if (isset($_SESSION['user']))
-                                                                                                                                                        echo "#traloi" ?>">Trả
+                                            echo "#traloi" ?>">Trả
                                                 lời</a></p>
                                     </div> -->
-                                    <?php if (!empty($bl['traloi'])) : ?>
-                                        <div class="col-2"><h5 class="text-danger mt-1 ms-2">Trả lời đánh giá</h5></div>
+                                    <?php if (!empty($bl['traloi'])): ?>
+                                        <div class="col-2">
+                                            <h5 class="text-danger mt-1 ms-2">Trả lời đánh giá</h5>
+                                        </div>
                                         <div class="col-10">
                                             <h5 class="fw-bold pt-3 text-primary ps-1 ">
-                                            <img src="../../uploads/906343.png" width="40px" height="40px" class="rounded-circle">   
-                                            ADMIN
+                                                <img src="../../uploads/906343.png" width="40px" height="40px"
+                                                    class="rounded-circle">
+                                                ADMIN
                                             </h5>
                                             <p class="ps-5 border border-2">
                                                 <?= $bl['traloi'] ?>
                                             </p>
                                         </div>
                                     <?php endif; ?>
-                            <?php
+                                    <?php
                                 endforeach;
                             endif;
                             ?>
@@ -246,92 +295,60 @@ session_start();
                                 </div>
                             </div>
                         </div> -->
-                        <div class="card-footer bg-transparent ">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                            
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Sản phẩm -->
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 mx-auto text-center mt-7 mb-5">
-                        <h5 class="fw-bold fs-3 fs-lg-5 lh-sm">Sản phẩm tương tự</h5>
-                    </div>
-                    <div class="col-12">
-                        <div class="row">
-                            <?php
-                            $rows = $sanpham->get_list();
-                            foreach ($rows as $row) :
-                            ?>
-                                <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100">
-                                    <div class="card card-span h-100 text-white"><img class="img-fluid h-100" src="../../uploads/<?= $row['hinhanh'] ?>" alt="..." />
-
-                                        <div class="card-body ps-0 bg-200">
-                                            <h5 class="fw-bold text-1000 text-truncate">
-                                                <?= $row['ten'] ?>
-                                            </h5>
-                                            <div class="fw-bold"><span class="text-primary">
-                                                    <?= number_format($row['gia']) ?>VND
-                                                </span></div>
-                                            <div class="d-flex lh-1 flex-row mb-5">
-                                                <a href="products_detail.php?id_sp=<?= $row['id_sp'] ?>"><button class="btn btn-success badge me-2 " type="submit" style="font-size: 14px;" name="xem">Xem chi tiết</button></a>
-                                                <form action="#" method="post">
-                                                    <input type="hidden" name="id_sp" id="" value="">
-                                                    <button class="btn btn-danger badge " style="font-size: 14px;" type="submit" name="them">Thêm vào giỏ hàng</button>
-                                                </form>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
-                            <?php endforeach; ?>
+            <!-- Sản phẩm -->
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7 mx-auto text-center mt-7 mb-5">
+                            <h5 class="fw-bold fs-3 fs-lg-5 lh-sm">Sản phẩm tương tự</h5>
                         </div>
                         <div class="col-12">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                            <div class="row">
+                                <?php
+                                $rows = $sanpham->get_list();
+                                foreach ($rows as $row):
+                                    ?>
+                                    <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100">
+                                        <div class="card card-span h-100 text-white"><img class="img-fluid h-100"
+                                                src="../../uploads/<?= $row['hinhanh'] ?>" alt="..." />
+
+                                            <div class="card-body ps-0 bg-200">
+                                                <h5 class="fw-bold text-1000 text-truncate">
+                                                    <?= $row['ten'] ?>
+                                                </h5>
+                                                <div class="fw-bold"><span class="text-primary">
+                                                        <?= number_format($row['gia']) ?>VND
+                                                    </span></div>
+                                                <div class="d-flex lh-1 flex-row mb-5">
+                                                    <a href="products_detail.php?id_sp=<?= $row['id_sp'] ?>"><button
+                                                            class="btn btn-success badge me-2 " type="submit"
+                                                            style="font-size: 14px;" name="xem">Xem chi tiết</button></a>
+                                                    <form action="#" method="post">
+                                                        <input type="hidden" name="id_sp" id="" value="">
+                                                        <button class="btn btn-danger badge " style="font-size: 14px;"
+                                                            type="submit" name="them">Thêm vào giỏ hàng</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                <?php endforeach; ?>
+                            </div>
+                            
                         </div>
                     </div>
-                </div>
 
-        </section>
-        <?php include "footer-main.php" ?>
+            </section>
+            <?php include "footer-main.php" ?>
     </main>
     <!-- ===============================================-->
     <!--    End of Main Content-->
@@ -353,7 +370,8 @@ session_start();
     </script>
     <script src="assets/js/theme.js"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
 </body>
 
 </html>

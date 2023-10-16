@@ -38,22 +38,22 @@ if (isset($_POST['luu'])) {
                     $mota == "" ||
                     $trangthai == "" || $id_lsp == "" || $mausac == ""
                 ) {
-                    echo "Tai that bai";
+                    header("Location: ../../error/404.html");
 
                 } else {
                     $result = $sanpham->update($id_sp, $ten, $image_name, $mausac, $gia, $trangthai, $id_lsp, $size, $mota);
                     if ($result) {
                         header("Location: ../frontend/danhsach_sanpham.php");
                     } else {
-                        echo "that bai!";
+                        header("Location: ../../error/404.html");
                     }
                 }
             } else {
-                echo "that bai!";
+                header("Location: ../../error/404.html");
             }
         }
     } catch (PDOException $e) {
-        die("Loi");
+        header("Location: ../../error/500.html");
     }
 
 

@@ -1,12 +1,16 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
 
 <head>
-	<title>Login 07</title>
+	<title>Đăng ký tài khoản</title>
 	<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
-	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
+	<link rel="icon" type="image/png" sizes="32x32"
+		href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
+	<link rel="icon" type="image/png" sizes="16x16"
+		href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
+	<link rel="shortcut icon" type="image/x-icon"
+		href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
 	<link rel="manifest" href="assets/img/favicons/manifest.json">
 
 	<meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
@@ -33,9 +37,13 @@
 	<header class="container position-sticky z-index-sticky top-1">
 		<div class="row">
 			<div class="col-12">
-				<nav class="navbar navbar-expand-lg top-0 z-index-3 shadow  position-absolute my-3 py-2 start-0 end-0 rounded-pill" style="background-color: #9EDDFF">
+				<nav class="navbar navbar-expand-lg top-0 z-index-3 shadow  position-absolute my-3 py-2 start-0 end-0 rounded-pill"
+					style="background-color: #9EDDFF">
 					<div class="container">
-						<a class="navbar-brand d-inline-flex d-flex justify-content-center align-items-center" href="index.php"><img class="d-inline-block" src="assets/img/gallery/White & Black Minimalist Logo Distro Fashion.png" width="42px" height="42px" alt="logo" /><span class="text-1000 fs-0 fw-bold ms-2">Borcelle</span></a>
+						<a class="navbar-brand d-inline-flex d-flex justify-content-center align-items-center"
+							href="index.php"><img class="d-inline-block"
+								src="assets/img/gallery/White & Black Minimalist Logo Distro Fashion.png" width="42px"
+								height="42px" alt="logo" /><span class="text-1000 fs-0 fw-bold ms-2">Borcelle</span></a>
 					</div>
 				</nav>
 			</div>
@@ -65,32 +73,37 @@
 								</div>
 
 							</div>
-							<form action="../backend/dangky.php" method="post" >
-						
-                                <div class="form-group mb-3">
+							<form action="../backend/dangky.php" method="post">
+
+								<div class="form-group mb-3">
 									<label class="label" for="name">Tên đăng nhập</label>
-									<input type="text" class="form-control" placeholder="Tên đăng nhập" name="username" required>
+									<input type="text" class="form-control" placeholder="Tên đăng nhập" name="username"
+										required>
 								</div>
-                                <div class="form-group mb-3">
+								<div class="form-group mb-3">
 									<label class="label" for="sdt">Số điện thoại</label>
-									<input type="text" class="form-control" placeholder="+84:"name="sdt" required>
+									<input type="text" class="form-control" placeholder="+84:" name="sdt" required>
 								</div>
 								<div class="form-group mb-3">
 									<label class="label" for="password">Mật khẩu</label>
-									<input type="password" class="form-control" placeholder="Mật khẩu" name='password' required>
+									<input type="password" class="form-control" placeholder="Mật khẩu" name='password'
+										required>
 								</div>
 								<div class="form-group">
-									<button type="submit" class="form-control btn btn-primary submit px-3" name='dangky'>Sign
-										In</button>
+									<button type="submit" class="form-control btn btn-primary submit px-3"
+										name='dangky'>Đăng Ký</button>
+									<?php if (isset($_SESSION['messages']))
+										echo "<br><span style='color: red;'>" . $_SESSION['messages'] . "</span><br>"; ?>
 								</div>
 								<div class="form-group d-md-flex">
 									<div class="w-50 text-left">
-										<label class="checkbox-wrap checkbox-primary mb-0">Tôi đồng ý với điều khoản.
-											<input type="checkbox" checked>
+										<label class="checkbox-wrap checkbox-primary mb-0">Tôi đồng ý với điều
+											khoản.
+											<input type="checkbox" checked required>
 											<span class="checkmark"></span>
 										</label>
 									</div>
-									
+
 								</div>
 							</form>
 						</div>

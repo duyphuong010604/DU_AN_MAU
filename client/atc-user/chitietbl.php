@@ -11,7 +11,7 @@ class chitiet_bl
         $db = new connect();
         $sql = "SELECT * FROM `chitietbl` CTBL
         INNER JOIN khachhang KH ON KH.id_kh = CTBL.id_kh
-        INNER JOIN binhluan BL ON BL.id_bl = CTBL.id_bl";
+        INNER JOIN binhluan BL ON BL.id_bl = CTBL.id_bl where BL.trangthai_bl like 'Hiển thị'";
         $result = $db->pdo_query($sql);
         return $result;
     }
@@ -28,7 +28,7 @@ class chitiet_bl
         $db = new connect();
         $sql = "SELECT * FROM `chitietbl` CTBL
         INNER JOIN khachhang KH ON KH.id_kh = CTBL.id_kh
-        INNER JOIN binhluan BL ON BL.id_bl = CTBL.id_bl WHERE BL.id_sp = $id ";
+        INNER JOIN binhluan BL ON BL.id_bl = CTBL.id_bl WHERE BL.id_sp = $id and BL.trangthai_bl LIKE 'Hiển thị' ";
         $result = $db->pdo_query($sql);
         return $result;
     }

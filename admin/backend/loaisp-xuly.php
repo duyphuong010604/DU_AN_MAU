@@ -17,9 +17,9 @@ try {
         if ($result) {
             header("Location: ../frontend/danhsach_loaisp.php");
         } else {
-            header("Location: ../frontend/them_loaisp.php");
+            header("Location: ../../error/404.html");
         }
     }
 }catch (PDOException $e) {
-    die("Loi");
+    header("Location: ../../error/500.html");
 }

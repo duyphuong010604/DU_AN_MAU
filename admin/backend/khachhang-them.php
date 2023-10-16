@@ -27,11 +27,11 @@ if (isset($_POST['them'])) {
             if ($result) {
                 header("Location: ../frontend/danhsach_taikhoannguoidung.php");
             } else {
-                header("Location: ../frontend/them_taikhoannguoidung.php");
+                header("Location: ../../error/404.html");
             }
         }
     } catch (PDOException $e) {
-        die("Lỗi : " ) ;
+        header("Location: ../../error/500.html");
     }
 
 }

@@ -10,10 +10,10 @@ if(isset($_GET['id_sp'])){
         if($result){
             header("Location:../frontend/danhsach_sanpham.php");
         }else{
-            echo "noth cong";
+            header("Location: ../../error/404.html");
         }
     }catch(PDOException $e){
-        die("Error deleting");
+        header("Location: ../../error/500.html");
     }
    
 }

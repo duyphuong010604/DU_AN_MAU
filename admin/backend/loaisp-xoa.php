@@ -10,10 +10,10 @@ if (isset($_GET['id_lsp'])) :
         if ($result){
             header("Location:../frontend/danhsach_loaisp.php");
         }else{
-            echo "that bai";
+            header('Location: ../../error/404.html');
         } 
     } catch (PDOException $e ) {
-        die("Lỗi " ) ;  
+        header('Location: ../../error/500.html');
     }
     
 endif;

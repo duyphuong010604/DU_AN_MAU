@@ -1,8 +1,9 @@
+<?php session_start();?>
 <!doctype html>
 <html lang="en">
 
 <head>
-	<title>Login 07</title>
+	<title>Đăng nhập tài khoản</title>
 	<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/White & Black Minimalist Logo Distro Fashion.png">
@@ -77,13 +78,16 @@
 									<input type="password" class="form-control" placeholder="Mật khẩu" name="password" required>
 								</div>
 								<div class="form-group">
-									<button type="submit" class="form-control btn btn-primary submit px-3" name='dangnhap'>Sign
-										In</button>
+									<button type="submit" class="form-control btn btn-primary submit px-3" name='dangnhap'>Đăng Nhập</button>
+									<?php if (isset($_SESSION['messages']))
+										echo "<br><span style='color: red;'>" . $_SESSION['messages'] . "</span><br>"; ?>
+
 								</div>
 								<div class="form-group d-md-flex">
 									<div class="w-50 text-left">
-										<label class="checkbox-wrap checkbox-primary mb-0">Tôi đồng ý với điều khoản.
-											<input type="checkbox" checked>
+										<label class="checkbox-wrap checkbox-primary mb-0">Tôi đồng ý với điều
+											khoản.
+											<input type="checkbox" checked required>
 											<span class="checkmark"></span>
 										</label>
 									</div>

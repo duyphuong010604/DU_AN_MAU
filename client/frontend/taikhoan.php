@@ -15,7 +15,7 @@ if (isset($_SESSION['user'])):
         <!-- ===============================================-->
         <!--    Document Title-->
         <!-- ===============================================-->
-        <title> Home - Borcelle </title>
+        <title> Tài khoản - Borcelle </title>
 
 
         <!-- ===============================================-->
@@ -136,21 +136,22 @@ if (isset($_SESSION['user'])):
                                             <div class="mb-3 col-md-6">
                                                 <label for="password" class="form-label">Mật khẩu cũ</label>
                                                 <input class="form-control" type="text" name="password" id="password"
-                                                    name="password" />
+                                                    name="password" required/>
                                             </div>
                                             <div class="mb-3 col-md-6">
                                                 <label for="password_new" class="form-label">Mật khẩu mới</label>
                                                 <input class="form-control" type="password" name="password_new"
-                                                    id="password_new" name="password-new" />
+                                                    id="password_new" name="password-new" required/>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-danger" name="thaydoi">Thay đổi</button>
+                                        <?php if (isset($_SESSION['saimatkhau'])) echo "<br><span style='color: red;'>" . $_SESSION['saimatkhau'] . "</span><br>"; ?>
                                     </form>
                                 </div>
                             </div>
 
                             <div class="card mt-5 ">
-                               <button type="submit" class="btn btn-danger" name="dangxuat"> <a href="dangxuat.php">Đăng xuất tài khoản</a></button>
+                               <button type="submit" class="btn btn-danger"> <a href="../backend/dangxuat.php">Đăng xuất tài khoản</a></button>
                             </div>
 
 

@@ -18,18 +18,18 @@ if (isset($_POST['luu'])) {
             empty($username) || empty($password) || empty($ho) || empty($ten) || empty($email) || empty($diachi) || empty($sdt) || empty($trangthai) || empty($id_kh)
             // $username == '' || $password == '' || $ho == '' || $ten == '' || $email == '' || $diachi == '' || $sdt == '' || $trangthai == '' || $id_kh ==''
         ) {
-            echo "Lỗi";
+            header("Location: ../../error/404.html");
         } else {
             
             $result = $khachhang->update($id_kh, $username, $password, $email, $ho, $ten, $sdt, $trangthai, $diachi);
             if ($result) {
                 header("Location: ../frontend/danhsach_taikhoannguoidung.php");
             } else {
-                header("Location: ../frontend/sua_tk.php");
+                header("Location: ../../error/404.html");
             }
         }
     } catch (PDOException $e) {
-        die("Lỗi!");
+        header("Location: ../../error/500.html");
     }
 
 

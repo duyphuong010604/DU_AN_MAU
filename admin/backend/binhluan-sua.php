@@ -6,15 +6,16 @@ include "../act-admin/chitietbl.php";
 
 $binhluan = new binhluan();
 $chitietbl = new chitiet_bl();
-if (isset($_POST['luu'])) {
-    $id_kh = trim($_POST['id_kh']) ?? " ";
-    $id_bl = trim($_POST['id_bl']) ?? " ";
-    $id_sp = trim($_POST['id_sp']) ?? ' ';
-    $trangthai_bl = trim($_POST['trangthai_bl']) ?? ' ';
-    $noidung_bl = trim($_POST['noidung_bl']) ?? ' ';
-    $traloi = trim($_POST['traloi']) ?? ' ';
-    $id_kh = trim($_POST['id_kh']) ?? ' ';
-    try {
+
+try {
+    if (isset($_POST['luu'])) {
+        $id_kh = trim($_POST['id_kh']) ?? " ";
+        $id_bl = trim($_POST['id_bl']) ?? " ";
+        $id_sp = trim($_POST['id_sp']) ?? ' ';
+        $trangthai_bl = trim($_POST['trangthai_bl']) ?? ' ';
+        $noidung_bl = trim($_POST['noidung_bl']) ?? ' ';
+        $traloi = trim($_POST['traloi']) ?? ' ';
+        $id_kh = trim($_POST['id_kh']) ?? ' ';
         if (empty($id_kh) || empty($id_bl) || empty($id_sp) || empty($trangthai_bl) || empty($noidung_bl)) {
 
             echo "trong";
@@ -25,11 +26,10 @@ if (isset($_POST['luu'])) {
             if ($result && $result_ctbl) {
                 header("Location: ../frontend/danhsach_binhluan.php");
             } else {
-                echo "thatbai";
+                header('Location: ../../error/404.html');
             }
         }
-    } catch (PDOException $e) {
-        die("Error");
     }
-
+} catch (PDOException $e) {
+    header('Location: ../../error/500.html');
 }
