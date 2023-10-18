@@ -82,7 +82,7 @@
 								</div>
 								<div class="form-group mb-3">
 									<label class="label" for="sdt">Số điện thoại</label>
-									<input type="text" class="form-control" placeholder="+84:" name="sdt" required>
+									<input type="number" minlength="10" maxlength="10" class="form-control" placeholder="+84:" name="sdt" required>
 								</div>
 								<div class="form-group mb-3">
 									<label class="label" for="password">Mật khẩu</label>

@@ -195,7 +195,7 @@
                         </div>
                         <span class="fw-semibold d-block mb-1">Số lượng tài khoản</span>
 
-                        <h3 class="card-title mb-2"><?=$dem_kh[0]['Tong']?></h3>
+                        <h3 class="card-title mb-2 text-danger"><?=$dem_kh[0]['Tong']?></h3>
                         <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt">+12.67%</i></small>
                       </div>
                     </div>
@@ -218,7 +218,7 @@
                           </div>
                         </div>
                         <span>Số lượng loại sản phẩm</span>
-                        <h3 class="card-title text-nowrap mb-1"><?=$dem_lsp[0]['Tong']?></h3>
+                        <h3 class="card-title text-nowrap mb-1 text-danger"><?=$dem_lsp[0]['Tong']?></h3>
                         <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.42%</small>
                       </div>
                     </div>
@@ -296,7 +296,7 @@
                           </div>
                         </div>
                         <span class="d-block mb-1">Số lượng sản phẩm</span>
-                        <h3 class="card-title text-nowrap mb-2"><?=$dem_sp[0]['Tong']?></h3>
+                        <h3 class="card-title text-nowrap mb-2 text-danger"><?=$dem_sp[0]['Tong']?></h3>
                         <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small>
                       </div>
                     </div>
@@ -319,7 +319,7 @@
                           </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Số lượng bình luận</span>
-                        <h3 class="card-title mb-2"><?=$dem_bl[0]['Tong']?></h3>
+                        <h3 class="card-title mb-2 text-danger"><?=$dem_bl[0]['Tong']?></h3>
                         <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.14%</small>
                       </div>
                     </div>

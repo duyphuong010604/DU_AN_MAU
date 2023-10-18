@@ -216,7 +216,7 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span id="sdt" class="input-group-text"><i class="bx bx-phone"></i></span>
-                            <input type="text" id="sdt" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="sdt" name="sdt" required />
+                            <input type="number" minlength="10" maxlength="10" id="sdt" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="sdt" name="sdt" required />
                           </div>
                         </div>
                       </div>

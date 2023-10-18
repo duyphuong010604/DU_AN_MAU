@@ -70,7 +70,6 @@ if (isset($_SESSION['user'])):
 
                                 $row = $khachhang->getById($id_kh);
 
-
                                 ?>
                                 <form action="../backend/taikhoan-capnhat.php" method="POST">
                                     <div class="row">
@@ -105,7 +104,7 @@ if (isset($_SESSION['user'])):
                                             <label class="form-label" for="sdt">Phone Number</label>
                                             <div class="input-group input-group-merge">
                                                 <span class="input-group-text">VN (+84)</span>
-                                                <input type="text" id="sdt" name="sdt" class="form-control"
+                                                <input type="number" minlength="10" maxlength="10" id="sdt" name="sdt" class="form-control"
                                                     value="<?= $row['sdt'] ?>" />
                                             </div>
                                         </div>
