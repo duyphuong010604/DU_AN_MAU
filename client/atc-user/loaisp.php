@@ -19,4 +19,6 @@ class loaisp
         $result = $db->pdo_query($sql);
         return $result;
     }
+
+   
 }

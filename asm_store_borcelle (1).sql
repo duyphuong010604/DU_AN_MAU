@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th10 05, 2023 lúc 03:59 AM
+-- Thời gian đã tạo: Th10 21, 2023 lúc 11:42 AM
 -- Phiên bản máy phục vụ: 8.0.31
 -- Phiên bản PHP: 7.4.33
 
@@ -56,10 +56,65 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`, `email`, `ho`, `ten`, `
 
 CREATE TABLE `binhluan` (
   `id_bl` int NOT NULL,
-  `ngaytao_bl` timestamp NULL DEFAULT NULL,
   `noidung_bl` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `trangthai_bl` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `trangthai_bl` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id_sp` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `binhluan`
+--
+
+INSERT INTO `binhluan` (`id_bl`, `noidung_bl`, `trangthai_bl`, `id_sp`) VALUES
+(26, 'sây helllo', 'Ẩn', 3),
+(27, 'Hang chat lượng', 'Hiển thị', 3),
+(28, 'Ahihi', 'Hiển thị', 3),
+(29, 'Ahihi', 'Hiển thị', 3),
+(30, 'huhujjj', 'Hiển thị', 3),
+(31, 'doo em oi', 'Ẩn', 4),
+(32, 'Balo tốt', 'Ẩn', 2),
+(33, 'Xanh chối quá, mà em thích', 'Hiển thị', 4),
+(34, 'Hơi đắt', 'Ẩn', 30),
+(35, 'Quá đen', 'Hiển thị', 3),
+(36, 'Mới thêm dô', 'Hiển thị', 1),
+(37, 'Chi tiết hơn cho quần', 'Hiển thị', 31),
+(38, 'đỏ đẹp', 'Hiển thị', 2),
+(39, 'hehehoooo', 'Hiển thị', 3),
+(40, 'oki la', 'Hiển thị', 1),
+(42, 'thanhcongqua', 'Hiển thị', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `chitietbl`
+--
+
+CREATE TABLE `chitietbl` (
+  `id_bl` int NOT NULL,
+  `id_kh` int NOT NULL,
+  `traloi` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `chitietbl`
+--
+
+INSERT INTO `chitietbl` (`id_bl`, `id_kh`, `traloi`) VALUES
+(26, 12, ''),
+(27, 15, 'Em nói dì anh không hiểu'),
+(28, 54, ''),
+(29, 54, ''),
+(30, 54, ''),
+(31, 54, ''),
+(32, 54, ''),
+(33, 54, ''),
+(34, 54, 'Đắt sắt ra miến'),
+(35, 54, ''),
+(36, 54, 'Mua đi bạn'),
+(37, 54, 'Cảm ơn bạn đã góp ý cho shop'),
+(38, 54, ''),
+(40, 1, ''),
+(42, 54, '');
 
 -- --------------------------------------------------------
 
@@ -220,32 +275,10 @@ INSERT INTO `khachhang` (`id_kh`, `username`, `password`, `email`, `ho`, `ten`, 
 (2, 'Duy Phương 12', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'Võ', 'Phương', '0388925209', 'An giang', 'Cho phép'),
 (3, 'root', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'Võ', 'Phương', '0388925209', 'An giang', 'Cho phép'),
 (4, 'Võ Duy Phương 12', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'Võ', 'Phương', '0388925209', 'An giang', 'Cho phép'),
-(12, 'Thư Đỗ5', '6c9335de5fad0ad60aa32f63ff0c6d06', 'phuongvdpc06941@fpt.edu.vn', 'Đỗ', 'Thư', '0389120633', 'An giang', NULL),
-(13, 'user_pc06941', '6c9335de5fad0ad60aa32f63ff0c6d06', 'phuongvdpc06941@fpt.edu.vn', 'Võ', 'Thư', '0388925209', 'An giang', NULL),
-(15, 'user', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'Đỗ', 'Phương', '0388925209', 'dsdsd', 'Chặn'),
-(16, 'u', 'd41d8cd98f00b204e9800998ecf8427e', '', '', '', '', '', ''),
-(17, 'user_pc06', '74be16979710d4c4e7c6647856088456', '', '', '', '', '', ''),
-(18, 'hehhe1', '6c9335de5fad0ad60aa32f63ff0c6d06', 'phuongvdpc06941@fpt.edu.vn', 'số 1', 'sấ', '0388925209', 'Cần thơ', NULL),
-(19, 'muoi', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'alo', 'Áo cotton', '0388925209', 'Cần thơ', NULL),
-(20, 'hay', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'số 1', 'Loai san pham moi', '0388925209', 'Cần thơ', NULL),
-(22, 'hay1', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'số 1', 'Loai san pham moi', '0388925209', 'Cần thơ', NULL),
-(25, 'heheh', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'số 1', 'Loai san pham moi', '0388925209', 'Cần thơ', NULL),
-(28, 'heheh1', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'số 1', 'Loai san pham moi', '0388925209', 'Cần thơ', NULL),
-(30, 'heheh12', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'số 1', 'Loai san pham moi', '0388925209', 'Cần thơ', NULL),
-(31, 'tôi', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'chịu', 'Áo dài', '0388925209', 'Cần thơ', NULL),
-(32, 'toi1', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'alo', 'Áo len nam', '0388925209', 'Cần thơbv', NULL),
-(33, 'toi11', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'alo1', 'Áo len nam', '0388925209', 'Cần thơbv', NULL),
-(34, 'omg', '6c9335de5fad0ad60aa32f63ff0c6d06', 'phuongvdpc06941@fpt.edu.vn', 'chịu', 'Áo len nam', '0388925209', 'Cần thơbv', NULL),
-(35, 'test1', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'chịu', 'oki', '0388925209', 'Cần thơbv', NULL),
-(36, 'test2', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'chịu', 'oki', '0388925209', 'Cần thơbv', NULL),
-(37, 'test3', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'chịu', 'Áo cotton', '0388925209', 'Cần thơ', NULL),
-(39, 'test4', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'chịu', 'Áo cotton', '0388925209', 'Cần thơ', NULL),
-(41, 'test5', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'chịu', 'Áo cotton', '0388925209', 'Cần thơ', NULL),
-(43, 'test6', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'chiu', 'Áo cotton', '0388925209', 'Cần thơbv', NULL),
-(44, 'test7', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'chiu', 'Áo cotton', '0388925209', 'Cần thơbv', NULL),
-(46, 'test8', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'chiu', 'Áo cotton', '0388925209', 'Cần thơbv', NULL),
-(48, 'test12', '6c9335de5fad0ad60aa32f63ff0c6d06', 'voduyphuong13@gmail.com', 'chịu', 'Loai san pham moi', '0388925209', 'Cần thơbv', NULL),
-(49, '', 'd41d8cd98f00b204e9800998ecf8427e', '', '', '', '', '', '');
+(12, 'Thư Đỗ5 ', '6c9335de5fad0ad60aa32f63ff0c6d06', 'phuongvdpc06941@fpt.edu.vn', 'Đỗ', 'Thư', '0389120633', 'An giang', 'Cho phép'),
+(54, 'Hello ', 'hayqua', 'dothianhthu6903@gmail.com', 'Đỗ Thị Anh', 'Thư', '0389120633', 'Ven sông cầu kinh 2', 'Cho phép'),
+(78, 'Thanhcongthem', 'mysql', 'voduy@gmail.com', 'Aloalo', 'hehe', '0389120633', '', 'Cho phép'),
+(83, 'duyphuong77', 'hehehe', '', '', '', '0388925209', '', 'Cho phép');
 
 -- --------------------------------------------------------
 
@@ -264,54 +297,14 @@ CREATE TABLE `loaisanpham` (
 --
 
 INSERT INTO `loaisanpham` (`id_lsp`, `ten`, `trangthai`) VALUES
-(1, 'Loại sản phẩm số một', 'Hiển thị'),
-(2, 'Loại sản phẩm 2', 'Hiển thị'),
-(3, 'Loai san pham 3', 'Hiển thị'),
-(4, 'Loai san pham 3', 'Hiển thị'),
-(5, 'Loai san pham 4', 'Hiển thị'),
-(6, 'Loai san pham 3', 'Hiển thị'),
-(7, 'Áo khoác', 'Hiển thị'),
-(8, 'Quần jeans', 'Hiển thị'),
-(9, 'Áo sơ mi', 'Ẩn'),
-(10, 'Váy maxi', 'Ẩn'),
-(11, 'Giày sneakers', 'Hiển thị'),
-(12, 'Túi xách', 'Hiển thị'),
-(13, 'Đồ lót nữ', 'Hiển thị'),
-(14, 'Áo len nữ', 'Hiển thị'),
-(15, 'Quần short', 'Hiển thị'),
-(16, 'Đầm dự tiệc', 'Ẩn'),
-(17, 'Áo sơ mi nam', 'Hiển thị'),
-(18, 'Váy maxi', 'Hiển thị'),
-(19, 'Đồ lót nữ', 'Hiển thị'),
-(20, 'Phụ kiện tóc', 'Hiển thị'),
-(21, 'Trang sức nam', 'Hiển thị'),
-(22, 'Kính mát', 'Hiển thị'),
-(23, 'Áo cotton', 'Hiển thị'),
-(24, 'Áo cotton', 'Ẩn'),
-(25, 'Áo cotton loại 1', 'Hiển thị'),
-(26, 'Áo dài', 'Hiển thị'),
-(27, 'Áo em bé', 'Hiển thị'),
-(28, 'Áo len nam', 'Hiển thị'),
-(29, 'Áo cotton loại 2', 'Hiển thị'),
-(30, 'Balo', 'Hiển thị'),
-(31, 'Balo leo núi', 'Hiển thị'),
-(32, 'Loai san pham moi', 'Ẩn'),
-(33, 'Ngày thứ 4', 'Hiển thị'),
-(48, '', ''),
-(49, '', ''),
-(50, '', ''),
-(51, 'ba', '1'),
-(52, '', ''),
-(53, '', ''),
-(54, '', ''),
-(55, '', ''),
-(56, '', ''),
-(57, '', ''),
-(58, '', ''),
-(59, 'dfvsdf', '0'),
-(60, 'Bốn', '0'),
-(61, 'bốn', '1'),
-(62, '05/10/2023', '0');
+(1, 'Loại sản phẩm số một', 'Ẩn'),
+(2, 'Loại sản phẩm 2', 'Ẩn'),
+(84, 'Áo', 'Hiển thị'),
+(85, 'Quần', 'Hiển thị'),
+(86, 'Đồng hồ', 'Hiển thị'),
+(87, 'Giày', 'Hiển thị'),
+(88, 'Kính', 'Hiển thị'),
+(89, 'Balo', 'Hiển thị');
 
 -- --------------------------------------------------------
 
@@ -326,7 +319,7 @@ CREATE TABLE `sanpham` (
   `mausac` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `size` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `gia` double DEFAULT NULL,
-  `mota` text COLLATE utf8mb4_general_ci,
+  `mota` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `trangthai` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `id_lsp` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -336,15 +329,19 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`id_sp`, `ten`, `hinhanh`, `mausac`, `size`, `gia`, `mota`, `trangthai`, `id_lsp`) VALUES
-(1, 'Balo leo núi', '20230806042850.png', 'xanh', 'XL', 70000, 'Chất liệu chuẩn châu âu', 'Hiển thị', 26),
-(2, 'Sản phẩm 2', '20230806043340.png', 'xanh', 'XL', 50000, 'Mô tả sản phẩm 2', 'Ẩn', 2),
-(3, 'Sản phẩm 3', '20230806043613.png', 'xanh', 'X', 60000, 'Mô tả sản phẩm 3', 'Hiển thị', 31),
-(4, 'Áo cotton', '20230807051319.png', 'xanh', 'XL', 300000, 'hh', 'Hiển thị', 1),
-(12, 'Áo nữ', '20230809174351.png', 'hồng', 'm', 500000, 'Sản phẩm chất lượng', 'Hiển thị', 24),
-(13, 'Đồng hồ', '20230810144053.png', 'xanh', 'X', 9000000, 'Đồng hồ thụy sĩ', 'Hiển thị', 32),
-(14, 'Đồng hồ thông minh', '20230810144236.png', 'xanh', 'Xl', 120000000, 'Đồng hồ 4.0', 'Hiển thị', 26),
-(15, 'Áo nam', '20230810144415.png', 'Đỏ', 'XL', 300000, 'Áo polo', 'Hiển thị', 12),
-(16, 'Áo polo nữ', '20230810144503.png', 'tím', 'S', 300000, 'Áo nữ', 'Hiển thị', 31);
+(1, 'Balo leo núi', '20231021025749.png', 'xanh', 'XL', 70000, 'Chất liệu chuẩn châu âu', 'Hiển thị', 89),
+(2, 'Sản phẩm 2', '20231021075401.png', 'xanh', 'XL', 50000, 'Mô tả sản phẩm 2', 'Hiển thị', 89),
+(3, 'Sản phẩm 3', '20231016062446.png', 'xanh', 'X', 60000, 'Mô tả sản phẩm 3', 'Hiển thị', 31),
+(4, 'Áo cotton', '20231021075615.png', 'Cam', 'XL', 300000, 'Màu cam sáng hơn màu đen', 'Hiển thị', 84),
+(12, 'Áo nữ', '20231021075640.png', 'Họa tiết', 'M', 500000, 'Sản phẩm chất lượng', 'Hiển thị', 84),
+(13, 'Đồng hồ', '20231015143649.png', 'xanh', 'X', 9000000, 'Đồng hồ thụy sĩ', 'Hiển thị', 32),
+(14, 'Đồng hồ thông minh', '20231016062531.png', 'xanh', 'Xl', 120000000, 'Đồng hồ 4.0', 'Hiển thị', 26),
+(15, 'Áo nam', '20231016062520.png', 'Đỏ', 'XL', 300000, 'Áo polo', 'Hiển thị', 12),
+(16, 'Áo polo nữ', '20230810144503.png', 'tím', 'S', 300000, 'Áo nữ', 'Ẩn', 31),
+(30, 'Thư', '20231009084029.png', 'hồng', 'm', 500000, 'dep', 'Ẩn', 24),
+(31, 'Quần Nam', '20231015170254.png', 'Xanh', 'm', 500000, 'dep', 'Ẩn', 1),
+(35, 'Áo cotton', '20231018100231.png', 'Đen', 'm', 300000, 'Áo co giản 2 chiều, đường viền sắc nét', 'Hiển thị', 84),
+(36, 'Balo Đỏ', '20231021022641.png', 'Đỏ', 'xl', 500000, 'Chống nước', 'Hiển thị', 89);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -360,7 +357,16 @@ ALTER TABLE `admin`
 -- Chỉ mục cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
-  ADD PRIMARY KEY (`id_bl`);
+  ADD PRIMARY KEY (`id_bl`),
+  ADD KEY `id_sp` (`id_sp`);
+
+--
+-- Chỉ mục cho bảng `chitietbl`
+--
+ALTER TABLE `chitietbl`
+  ADD PRIMARY KEY (`id_bl`,`id_kh`),
+  ADD KEY `id_bl` (`id_bl`,`id_kh`),
+  ADD KEY `id_kh` (`id_kh`);
 
 --
 -- Chỉ mục cho bảng `chitiethoadon`
@@ -388,7 +394,8 @@ ALTER TABLE `khachhang`
 -- Chỉ mục cho bảng `loaisanpham`
 --
 ALTER TABLE `loaisanpham`
-  ADD PRIMARY KEY (`id_lsp`);
+  ADD PRIMARY KEY (`id_lsp`),
+  ADD UNIQUE KEY `ten` (`ten`);
 
 --
 -- Chỉ mục cho bảng `sanpham`
@@ -411,7 +418,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
-  MODIFY `id_bl` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_bl` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadon`
@@ -423,23 +430,36 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT cho bảng `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `id_kh` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_kh` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT cho bảng `loaisanpham`
 --
 ALTER TABLE `loaisanpham`
-  MODIFY `id_lsp` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_lsp` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id_sp` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_sp` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `binhluan`
+--
+ALTER TABLE `binhluan`
+  ADD CONSTRAINT `binhluan_ibfk_1` FOREIGN KEY (`id_sp`) REFERENCES `sanpham` (`id_sp`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Các ràng buộc cho bảng `chitietbl`
+--
+ALTER TABLE `chitietbl`
+  ADD CONSTRAINT `chitietbl_ibfk_1` FOREIGN KEY (`id_bl`) REFERENCES `binhluan` (`id_bl`),
+  ADD CONSTRAINT `chitietbl_ibfk_2` FOREIGN KEY (`id_kh`) REFERENCES `khachhang` (`id_kh`);
 
 --
 -- Các ràng buộc cho bảng `chitiethoadon`

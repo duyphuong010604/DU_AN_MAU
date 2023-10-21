@@ -27,4 +27,21 @@ class sanpham
         return $result;
         
     }
+
+    public function get_list_min()
+    {
+        $db = new connect();
+        $sql = "SELECT * FROM `sanpham` where trangthai not like 'Ẩn' ORDER BY gia";
+        $result = $db->pdo_query($sql);
+        return $result;
+    }
+
+    public function get_list_max()
+    {
+        $db = new connect();
+        $sql = "SELECT * FROM `sanpham` where trangthai not like 'Ẩn' ORDER BY gia DESC";
+        $result = $db->pdo_query($sql);
+        return $result;
+    }
+
 }

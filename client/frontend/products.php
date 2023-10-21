@@ -67,6 +67,8 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="products.php">Xem tất cả</a></li>
+                                        <li><a class="dropdown-item" href="sanpham-min.php">Giá thấp nhất</a></li>
+                                        <li><a class="dropdown-item" href="sanpham-max.php">Giá cao nhất</a></li>
                                         <?php
                                         include "../backend/pdo.php";
                                         include "../atc-user/sanpham.php";

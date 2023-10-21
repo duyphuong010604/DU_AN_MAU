@@ -85,15 +85,9 @@
                     <div class="col-12">
                         <div class="row">
                             <?php
-                            $id_lsp = $_GET['id_lsp'];
-
-                            $rows = $loaisp->get_list_loai($id_lsp);
-                            // echo "<pre>".var_dump($rows)."</pre>";
-                            
-
-
+                            $rows = $sanpham->get_list_min();
+                            // var_dump($rows);
                             foreach ($rows as $row) :
-
                             ?>
 
                                 <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100">
@@ -101,7 +95,7 @@
 
                                         <div class="card-body ps-0 bg-200">
                                             <h5 class="fw-bold text-1000 text-truncate">
-                                                <?= $row['1'] ?>
+                                                <?= $row['ten'] ?>
                                             </h5>
                                             <div class="fw-bold"><span class="text-primary">
                                                     <?= number_format($row['gia']) ?>VND

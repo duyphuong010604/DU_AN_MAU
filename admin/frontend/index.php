@@ -10,7 +10,8 @@
         <div class="app-brand demo">
           <a href="index.php" class="app-brand-link">
             <span class="app-brand-logo demo">
-              <img class="img" src="../content/assets/img/favicon/White & Black Minimalist Logo Distro Fashion.png" alt="logo" width="42px" height="42px">
+              <img class="img" src="../content/assets/img/favicon/White & Black Minimalist Logo Distro Fashion.png"
+                alt="logo" width="42px" height="42px">
             </span>
             <span class="app-brand-text demo menu-text fw-bolder ms-2">BORCELLE</span>
             <span class="text-primary text-admin ps-1">Admin</span>
@@ -154,7 +155,9 @@
                     </div>
                     <div class="col-sm-5 text-center text-sm-left">
                       <div class="card-body pb-0 px-0 px-md-4">
-                        <img src="../content/assets/img/illustrations/man-with-laptop-light.png" height="140" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png" />
+                        <img src="../content/assets/img/illustrations/man-with-laptop-light.png" height="140"
+                          alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png"
+                          data-app-light-img="illustrations/man-with-laptop-light.png" />
                       </div>
                     </div>
                   </div>
@@ -167,24 +170,30 @@
                       <?php
                       include "../backend/pdo.php";
                       include "../act-admin/thongke.php";
+                      include "../act-admin/loaisp.php";
+
                       $thongke = new thongke();
                       $khachhang = "khachhang";
                       $binhluan = "binhluan";
                       $sanpham = "sanpham";
+                      $loaisanpham = new loaisp();
+
                       $loaisp = "loaisanpham";
                       $dem_kh = $thongke->dem($khachhang);
                       $dem_bl = $thongke->dem($binhluan);
                       $dem_sp = $thongke->dem($sanpham);
                       $dem_lsp = $thongke->dem($loaisp);
-                      
+
                       ?>
                       <div class="card-body">
                         <div class="card-title d-flex align-items-start justify-content-between">
                           <div class="avatar flex-shrink-0">
-                            <img src="../content/assets/img/icons/unicons/chart-success.png" alt="chart success" class="rounded" />
+                            <img src="../content/assets/img/icons/unicons/chart-success.png" alt="chart success"
+                              class="rounded" />
                           </div>
                           <div class="dropdown">
-                            <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
@@ -195,7 +204,9 @@
                         </div>
                         <span class="fw-semibold d-block mb-1">Số lượng tài khoản</span>
 
-                        <h3 class="card-title mb-2 text-danger"><?=$dem_kh[0]['Tong']?></h3>
+                        <h3 class="card-title mb-2 text-danger">
+                          <?= $dem_kh[0]['Tong'] ?>
+                        </h3>
                         <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt">+12.67%</i></small>
                       </div>
                     </div>
@@ -205,10 +216,12 @@
                       <div class="card-body">
                         <div class="card-title d-flex align-items-start justify-content-between">
                           <div class="avatar flex-shrink-0">
-                            <img src="../content/assets/img/icons/unicons/wallet-info.png" alt="Credit Card" class="rounded" />
+                            <img src="../content/assets/img/icons/unicons/wallet-info.png" alt="Credit Card"
+                              class="rounded" />
                           </div>
                           <div class="dropdown">
-                            <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
@@ -218,7 +231,9 @@
                           </div>
                         </div>
                         <span>Số lượng loại sản phẩm</span>
-                        <h3 class="card-title text-nowrap mb-1 text-danger"><?=$dem_lsp[0]['Tong']?></h3>
+                        <h3 class="card-title text-nowrap mb-1 text-danger">
+                          <?= $dem_lsp[0]['Tong'] ?>
+                        </h3>
                         <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.42%</small>
                       </div>
                     </div>
@@ -229,11 +244,45 @@
               <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
                 <div class="card">
                   <div class="row row-bordered g-0">
-                    <div class="col-md-8">
-                      <h5 class="card-header m-0 me-2 pb-3">Total Revenue</h5>
-                      <div id="totalRevenueChart" class="px-2"></div>
+
+                    <div class="col-md-12">
+                      <div id="bieu-do" style=" height: 400px; width: 100%;"></div>
                     </div>
-                    <div class="col-md-4">
+
+                    <?php
+                    $truyvan_ao = "SELECT COUNT(SP.id_sp) as 'SL'FROM sanpham SP
+                      INNER JOIN loaisanpham LSP ON LSP.id_lsp = SP.id_lsp 
+                      WHERE LSP.id_lsp = 84";
+                    $dem_sl_ao = $loaisanpham->dem_sp($truyvan_ao);
+
+                    $truyvan_quan = "SELECT COUNT(SP.id_sp) as 'SL'FROM sanpham SP
+                      INNER JOIN loaisanpham LSP ON LSP.id_lsp = SP.id_lsp 
+                      WHERE LSP.id_lsp = 85";
+                    $dem_sl_quan = $loaisanpham->dem_sp($truyvan_quan);
+
+                    $truyvan_dongho = "SELECT COUNT(SP.id_sp) as 'SL'FROM sanpham SP
+                      INNER JOIN loaisanpham LSP ON LSP.id_lsp = SP.id_lsp 
+                      WHERE LSP.id_lsp = 86";
+                    $dem_sl_dongho = $loaisanpham->dem_sp($truyvan_dongho);
+
+                    $truyvan_giay = "SELECT COUNT(SP.id_sp) as 'SL'FROM sanpham SP
+                      INNER JOIN loaisanpham LSP ON LSP.id_lsp = SP.id_lsp 
+                      WHERE LSP.id_lsp = 87";
+                    $dem_sl_giay = $loaisanpham->dem_sp($truyvan_giay);
+
+                    $truyvan_kinh = "SELECT COUNT(SP.id_sp) as 'SL'FROM sanpham SP
+                      INNER JOIN loaisanpham LSP ON LSP.id_lsp = SP.id_lsp 
+                      WHERE LSP.id_lsp = 88";
+                    $dem_sl_kinh = $loaisanpham->dem_sp($truyvan_kinh);
+
+                    $truyvan_balo = "SELECT COUNT(SP.id_sp) as 'SL'FROM sanpham SP
+                      INNER JOIN loaisanpham LSP ON LSP.id_lsp = SP.id_lsp 
+                      WHERE LSP.id_lsp = 89";
+                    $dem_sl_balo = $loaisanpham->dem_sp($truyvan_balo);
+
+                    ?>
+
+                    <!-- <div class="col-md-4">
                       <div class="card-body">
                         <div class="text-center">
                           <div class="dropdown">
@@ -271,7 +320,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -283,10 +332,12 @@
                       <div class="card-body">
                         <div class="card-title d-flex align-items-start justify-content-between">
                           <div class="avatar flex-shrink-0">
-                            <img src="../content/assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
+                            <img src="../content/assets/img/icons/unicons/paypal.png" alt="Credit Card"
+                              class="rounded" />
                           </div>
                           <div class="dropdown">
-                            <button class="btn p-0" type="button" id="cardOpt4" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn p-0" type="button" id="cardOpt4" data-bs-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
@@ -296,7 +347,9 @@
                           </div>
                         </div>
                         <span class="d-block mb-1">Số lượng sản phẩm</span>
-                        <h3 class="card-title text-nowrap mb-2 text-danger"><?=$dem_sp[0]['Tong']?></h3>
+                        <h3 class="card-title text-nowrap mb-2 text-danger">
+                          <?= $dem_sp[0]['Tong'] ?>
+                        </h3>
                         <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small>
                       </div>
                     </div>
@@ -306,10 +359,12 @@
                       <div class="card-body">
                         <div class="card-title d-flex align-items-start justify-content-between">
                           <div class="avatar flex-shrink-0">
-                            <img src="../content/assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
+                            <img src="../content/assets/img/icons/unicons/cc-primary.png" alt="Credit Card"
+                              class="rounded" />
                           </div>
                           <div class="dropdown">
-                            <button class="btn p-0" type="button" id="cardOpt1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn p-0" type="button" id="cardOpt1" data-bs-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="cardOpt1">
@@ -319,13 +374,15 @@
                           </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Số lượng bình luận</span>
-                        <h3 class="card-title mb-2 text-danger"><?=$dem_bl[0]['Tong']?></h3>
+                        <h3 class="card-title mb-2 text-danger">
+                          <?= $dem_bl[0]['Tong'] ?>
+                        </h3>
                         <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.14%</small>
                       </div>
                     </div>
                   </div>
-                  <!-- </div>
-    <div class="row"> -->
+                </div>
+                <div class="row">
                   <div class="col-12 mb-4">
                     <div class="card">
                       <div class="card-body">
@@ -336,7 +393,8 @@
                               <span class="badge bg-label-warning rounded-pill">Year 2021</span>
                             </div>
                             <div class="mt-sm-auto">
-                              <small class="text-success text-nowrap fw-semibold"><i class="bx bx-chevron-up"></i> 68.2%</small>
+                              <small class="text-success text-nowrap fw-semibold"><i class="bx bx-chevron-up"></i>
+                                68.2%</small>
                               <h3 class="mb-0">$84,686k</h3>
                             </div>
                           </div>
@@ -348,9 +406,10 @@
                 </div>
               </div>
             </div>
+
             <div class="row">
               <!-- Order Statistics -->
-              <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+              <!-- <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
                 <div class="card h-100">
                   <div class="card-header d-flex align-items-center justify-content-between pb-0">
                     <div class="card-title mb-0">
@@ -358,7 +417,8 @@
                       <small class="text-muted">42.82k Total Sales</small>
                     </div>
                     <div class="dropdown">
-                      <button class="btn p-0" type="button" id="orederStatistics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <button class="btn p-0" type="button" id="orederStatistics" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <i class="bx bx-dots-vertical-rounded"></i>
                       </button>
                       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
@@ -436,16 +496,18 @@
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!--/ Order Statistics -->
 
               <!-- Expense Overview -->
-              <div class="col-md-6 col-lg-4 order-1 mb-4">
+              <!-- <div class="col-md-6 col-lg-4 order-1 mb-4">
                 <div class="card h-100">
                   <div class="card-header">
                     <ul class="nav nav-pills" role="tablist">
                       <li class="nav-item">
-                        <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-line-card-income" aria-controls="navs-tabs-line-card-income" aria-selected="true">
+                        <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
+                          data-bs-target="#navs-tabs-line-card-income" aria-controls="navs-tabs-line-card-income"
+                          aria-selected="true">
                           Income
                         </button>
                       </li>
@@ -489,16 +551,17 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!--/ Expense Overview -->
 
               <!-- Transactions -->
-              <div class="col-md-6 col-lg-4 order-2 mb-4">
+              <!-- <div class="col-md-6 col-lg-4 order-2 mb-4">
                 <div class="card h-100">
                   <div class="card-header d-flex align-items-center justify-content-between">
                     <h5 class="card-title m-0 me-2">Transactions</h5>
                     <div class="dropdown">
-                      <button class="btn p-0" type="button" id="transactionID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <button class="btn p-0" type="button" id="transactionID" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <i class="bx bx-dots-vertical-rounded"></i>
                       </button>
                       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
@@ -603,7 +666,7 @@
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!--/ Transactions -->
             </div>
           </div>
@@ -648,6 +711,56 @@
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Bieu đồ -->
+  <?php
+
+
+  $dataPoints = array(
+    array("y" => $dem_sl_ao, "label" => "Áo"),
+    array("y" => $dem_sl_quan, "label" => "Quần"),
+    array("y" => $dem_sl_dongho, "label" => "Đồng Hồ"),
+    array("y" => $dem_sl_balo, "label" => "Balo"),
+    array("y" => $dem_sl_kinh, "label" => "Kính"),
+    array("y" => $dem_sl_giay, "label" => "Giày"),
+    array(
+      "y" => $dem_sp[0]['Tong'] - ($dem_sl_ao +
+        $dem_sl_quan +
+        $dem_sl_dongho +
+        $dem_sl_giay +
+        $dem_sl_kinh +
+        $dem_sl_balo),
+      "label" => "Sản phẩm khác"
+    )
+
+  );
+
+  ?>
+  <script>
+    window.onload = function () {
+
+      var chart = new CanvasJS.Chart("bieu-do", {
+        animationEnabled: true,
+        theme: "light2",
+        title: {
+          text: "Số Lượng sản phẩm theo từng loại "
+        },
+        axisY: {
+          title: "Số Lượng "
+        },
+        data: [{
+          type: "column",
+          yValueFormatString: "#,##0.## tonnes",
+          dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+        }]
+      });
+      chart.render();
+
+    }
+  </script>
+  <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
+
 </body>
 
 </html>
