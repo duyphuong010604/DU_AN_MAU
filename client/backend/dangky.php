@@ -8,7 +8,7 @@ try {
     if (isset($_POST['dangky'])) {
         $username = trim($_POST['username']) ?? ' ';
         $sdt = trim($_POST['sdt']) ?? ' ';
-        $password = trim($_POST['password']) ?? ' ';
+        $password = strlen(trim($_POST['password']))<3 ? "":trim($_POST['password']);
         $trangthai = "Cho phép";
 
         if (empty($username) || empty($sdt) || empty($password)) {

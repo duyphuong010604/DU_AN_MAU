@@ -90,7 +90,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-warning text-white h-100" id="basic-addon2"><i class='bx bxs-lock-alt' ></i></span>
 									</div>
-									<input type="password" name="password" class="form-control form-control-lg"
+									<input type="password" name="password" minlength="3" class="form-control form-control-lg"
 										placeholder="Mật khẩu" aria-label="Password" aria-describedby="basic-addon1"
 										required="">
 								</div>

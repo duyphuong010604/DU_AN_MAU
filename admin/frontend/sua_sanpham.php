@@ -210,7 +210,7 @@
                         <div class="col-sm-10">
                           <div class="input-group input-group-merge">
                             <span id="gia" class="input-group-text"><i class='bx bx-dollar-circle'></i></span>
-                            <input type="text" class="form-control" id="gia" name="gia" value="<?=$rows['gia'] ?>"/>
+                            <input type="number" class="form-control" id="gia" name="gia" min="1" max="999999999999" value="<?=$rows['gia'] ?>"/>
                           </div>
                         </div>
                       </div>

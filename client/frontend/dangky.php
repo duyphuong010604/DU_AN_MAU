@@ -86,7 +86,7 @@
 								</div>
 								<div class="form-group mb-3">
 									<label class="label" for="password">Mật khẩu</label>
-									<input type="password" class="form-control" placeholder="Mật khẩu" name='password'
+									<input type="password" class="form-control" placeholder="Mật khẩu" minlength="3" name='password'
 										required>
 								</div>
 								<div class="form-group">

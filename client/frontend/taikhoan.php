@@ -140,7 +140,7 @@ if (isset($_SESSION['user'])):
                                             <div class="mb-3 col-md-6">
                                                 <label for="password_new" class="form-label">Mật khẩu mới</label>
                                                 <input class="form-control" type="password" name="password_new"
-                                                    id="password_new" name="password-new" required/>
+                                                    id="password_new" name="password-new" minlength="3" required/>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-danger" name="thaydoi">Thay đổi</button>

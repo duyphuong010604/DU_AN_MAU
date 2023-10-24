@@ -13,7 +13,7 @@ class binhluan
     public function get_list()
     {
         $db = new connect();
-        $sql = "SELECT  * FROM binhluan ";
+        $sql = "SELECT  * FROM binhluan ORDER BY id_bl DESC";
         $result = $db->pdo_query($sql);
         return $result;
     }

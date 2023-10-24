@@ -170,7 +170,7 @@
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="id_lsp">ID loại sản ph</label>
+                          <label class="col-sm-2 col-form-label" for="id_lsp">ID loại sản phẩm</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
                               <span id="id_lsp" class="input-group-text"
@@ -211,7 +211,7 @@
                               <span id="gia" class="input-group-text"
                                 ><i class='bx bx-dollar-circle' ></i></span>
                               <input
-                                type="text"
+                                type="number"
                                 class="form-control"
                                 id="gia"
                                 placeholder="Giá sản phẩm"
@@ -219,6 +219,7 @@
                                 aria-describedby="gia"
                                 name="gia"
                                 required
+                                min="1" max="999999999999"
                               />
                             </div>
                           </div>

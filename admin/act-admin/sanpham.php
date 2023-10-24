@@ -20,6 +20,27 @@ class sanpham
 
     }
 
+    public function get_giatb(){
+        $db = new connect();
+        $sql = "SELECT ROUND(SUM(gia)/COUNT(id_sp),0) FROM `sanpham` ";
+        $result = $db->pdo_query_value($sql);
+        return $result;
+    }
+
+    public function get_giamin(){
+        $db = new connect();
+        $sql = "SELECT MIN(gia) FROM `sanpham` ";
+        $result = $db->pdo_query_value($sql);
+        return $result;
+    }
+
+    public function get_giamax(){
+        $db = new connect();
+        $sql = "SELECT MAX(gia) FROM `sanpham` ";
+        $result = $db->pdo_query_value($sql);
+        return $result;
+    }
+
     public function add( $ten, $hinhanh, $mausac,$gia,$trangthai,$id_lsp,$size,$mota){
         $db = new connect();
         $sql = "INSERT INTO sanpham(ten, hinhanh, mausac, gia,trangthai,id_lsp,mota,size) VALUES ('$ten','$hinhanh','$mausac','$gia','$trangthai',$id_lsp,'$mota','$size')";

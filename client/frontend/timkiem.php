@@ -8,7 +8,6 @@ try{
     if(isset($_POST["search"])){
         $search = trim($_POST["search"]);
         $result = $timkiem->timkiem_sp($search);
-        
     }
 }catch(PDOException $e){
     die("error");

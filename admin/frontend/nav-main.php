@@ -12,9 +12,9 @@
             <div class="navbar-nav align-items-center">
               <div class="nav-item d-flex align-items-center">
                 <i class="bx bx-search fs-4 lh-0"></i>
-                <form action="../backend/timkiem.php" method="post">
-                  <input type="text" class="form-control border-0 shadow-none" placeholder="Search..."
-                    aria-label="Search..." name="timkiem-loai"/>
+                <form action="timkiem.php" method="post">
+                  <input type="text" class="form-control border-0 shadow-none" placeholder="Tìm kiếm sản phẩm..."
+                    aria-label="Search..." name="timkiem"/>
                 </form>
               </div>
             </div>
@@ -22,11 +22,11 @@
 
             <ul class="navbar-nav flex-row align-items-center ms-auto">
               <!-- Place this tag where you want the button to render. -->
-              <li class="nav-item lh-1 me-3">
+              <!-- <li class="nav-item lh-1 me-3">
                 <a class="github-button" href="https://github.com/themeselection/sneat-html-admin-template-free"
                   data-icon="octicon-star" data-size="large" data-show-count="true"
                   aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
-              </li>
+              </li> -->
 
               <!-- User -->
               <li class="nav-item navbar-dropdown dropdown-user dropdown">

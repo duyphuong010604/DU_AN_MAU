@@ -6,7 +6,7 @@ $khachhang = new khachhang();
 
 if (isset($_POST['them'])) {
     $username = trim($_POST['username']) ?? ' ';
-    $password = trim($_POST['password']) ?? ' ';
+    $password = strlen(trim($_POST['password']))<3 ? "":trim($_POST['password']);
     $ho = trim($_POST['ho']) ?? ' ';
     $ten = trim($_POST['ten']) ?? ' ';
     $email = trim($_POST['email']) ?? ' ';
