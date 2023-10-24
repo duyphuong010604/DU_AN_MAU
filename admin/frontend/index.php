@@ -241,7 +241,7 @@
                   <div class="row row-bordered g-0 mb-3">
 
                     <div class="col-md-12 rounded">
-                      <div id="bieu-do" style=" height: 400px; width: 100%;"></div>
+                      <div id="bieu-do-tron" style=" height: 400px; width: 100%;"></div>
                     </div>
 
                     <?php
@@ -452,48 +452,7 @@
   <?php
 
 
-  $dataPoints = array(
-    array("y" => $dem_sl_ao, "label" => "Áo"),
-    array("y" => $dem_sl_quan, "label" => "Quần"),
-    array("y" => $dem_sl_dongho, "label" => "Đồng Hồ"),
-    array("y" => $dem_sl_balo, "label" => "Balo"),
-    array("y" => $dem_sl_kinh, "label" => "Kính"),
-    array("y" => $dem_sl_giay, "label" => "Giày"),
-    array(
-      "y" => $dem_sp[0]['Tong'] - ($dem_sl_ao +
-        $dem_sl_quan +
-        $dem_sl_dongho +
-        $dem_sl_giay +
-        $dem_sl_kinh +
-        $dem_sl_balo),
-      "label" => "Sản phẩm khác"
-    )
-
-  );
-
-  ?>
-  <script>
-    window.onload = function() {
-      var chart = new CanvasJS.Chart("bieu-do", {
-        animationEnabled: true,
-        theme: "light2",
-        title: {
-          text: "Số Lượng sản phẩm theo từng loại "
-        },
-        axisY: {
-          title: "Số Lượng "
-        },
-        data: [{
-          type: "column",
-          yValueFormatString: "#,##0.## tonnes",
-          dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-        }]
-      });
-      chart.render();
-    }
-  </script>
-  <?php
-  // $dataPoints_tron = array(
+  // $dataPoints = array(
   //   array("y" => $dem_sl_ao, "label" => "Áo"),
   //   array("y" => $dem_sl_quan, "label" => "Quần"),
   //   array("y" => $dem_sl_dongho, "label" => "Đồng Hồ"),
@@ -513,9 +472,50 @@
   // );
 
   ?>
+  <script>
+    // window.onload = function() {
+    //   var chart = new CanvasJS.Chart("bieu-do", {
+    //     animationEnabled: true,
+    //     theme: "light2",
+    //     title: {
+    //       text: "Số Lượng sản phẩm theo từng loại "
+    //     },
+    //     axisY: {
+    //       title: "Số Lượng "
+    //     },
+    //     data: [{
+    //       type: "column",
+    //       yValueFormatString: "#,##0.## tonnes",
+    //       dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+    //     }]
+    //   });
+    //   chart.render();
+    // }
+  </script>
+  <?php
+  $dataPoints_tron = array(
+    array("y" => $dem_sl_ao/$dem_sp[0]['Tong']*100, "label" => "Áo"),
+    array("y" => $dem_sl_quan/$dem_sp[0]['Tong']*100, "label" => "Quần"),
+    array("y" => $dem_sl_dongho/$dem_sp[0]['Tong']*100, "label" => "Đồng Hồ"),
+    array("y" => $dem_sl_balo/$dem_sp[0]['Tong']*100, "label" => "Balo"),
+    array("y" => $dem_sl_kinh/$dem_sp[0]['Tong']*100, "label" => "Kính"),
+    array("y" => $dem_sl_giay/$dem_sp[0]['Tong']*100, "label" => "Giày"),
+    array(
+      "y" => ($dem_sp[0]['Tong'] - ($dem_sl_ao +
+        $dem_sl_quan +
+        $dem_sl_dongho +
+        $dem_sl_giay +
+        $dem_sl_kinh +
+        $dem_sl_balo))/$dem_sp[0]['Tong']*100,
+      "label" => "Sản phẩm khác"
+    )
+
+  );
+
+  ?>
 
 
-  <!-- <script>
+  <script>
     window.onload = function() {
       var chart1 = new CanvasJS.Chart("bieu-do-tron", {
         theme: "light2",
@@ -526,20 +526,20 @@
         data: [{
           type: "pie",
           indexLabel: "{y}",
-          yValueFormatString: "#,##0.00\"%\"",
+          yValueFormatString: "#,##0.0\"%\"",
           indexLabelPlacement: "inside",
           indexLabelFontColor: "#36454F",
           indexLabelFontSize: 18,
           indexLabelFontWeight: "bolder",
           showInLegend: true,
-          legendText: "{label}",
+          legendText: "{label} ",
           dataPoints: <?php echo json_encode($dataPoints_tron, JSON_NUMERIC_CHECK); ?>
         }]
       });
       chart1.render();
 
     }
-  </script> -->
+  </script>
 
 
 
